@@ -1,0 +1,93 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+//TOP画面
+
+ .img   //TOPページサイド画像
+ {                    
+    vertical-align: middle;
+    width: 100%;
+
+ }
+
+ 
+ .image //TOPページサイド画像
+ {
+     padding-right: 30px;
+ }
+ 
+ .col-md-4.feature p //サイトの特徴の文字サイズ
+ {
+    font-size: 18px;
+ }
+
+ 
+ 
+ //ログイン画面
+ 
+ 
+ 
+ 
+  
+.row.sign_in_box //ログイン画面の枠
+{
+  text-align: center;
+  background-color: #fcfbf8;
+  margin:0 -200%;
+  padding: 5% 0 15% 0;
+  
+}
+
+
+ 
+.sign_in.btn-primary //ログインボタン
+{
+  background-color: #000;
+  border-color: #000;
+  color: #FFFFFF;
+  border-radius: 5px;
+  width: 350px;
+  height: 60px;
+  margin-top: 30px;
+}
+
+#user_email //メール入力フォーム
+{
+  width: 350px;
+  height: 35px;
+  border-radius: 5px;
+}
+
+#user_password //パスワード入力フォーム
+{
+  width: 350px;
+  height: 35px;
+  border-radius: 5px;
+}
+
+
+//サインアップ画面
+
+.row.sign_up_box //サインアップ画面
+{
+  text-align: center;
+  background-color: #fcfbf8;
+  
+
+}

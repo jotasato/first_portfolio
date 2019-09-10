@@ -62,4 +62,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.6'
-gem 'jquery-rails'
+gem 'jquery-rails'#railsでjqueryを使用できるようにする
+gem 'devise-i18n' #デバイスのエラーメッセージ日本語翻訳
+gem 'devise-i18n-views'  #デバイスのビュー画面の日本語翻訳

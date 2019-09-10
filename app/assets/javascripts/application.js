@@ -12,5 +12,24 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
+
+//= require bootstrap-sprockets
+//= require jquery
+//= require jquery_ujs
 //= require_tree .
+
+
+
+$(function() {
+    $('.slider').slick({  　　　　　　//TOPページ jQueryスリックの記述
+        
+      
+        //jQueryスリックのオプション　
+            autoplay: true,　      // 自動再生。trueで自動再生される。
+            autoplaySpeed:3000,    // 自動再生や左右の矢印でスライドが動くスピード
+            speed:1000,             //スライドするスピード
+            prevArrow:'',          //prevボタンをなくす。
+            nextArrow:'',          //prevボタンをなくす。
+    });
+});
+

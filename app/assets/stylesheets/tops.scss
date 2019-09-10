@@ -1,3 +1,26 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+
+.container{
+    height: 500px;
+  
+}
+
+
+.slick-dots {
+    position: absolute !important;
+    bottom: 20px !important;
+    li {
+      font-size: 20px !important;
+      button:before {
+        content: "●" !important;
+        font-size: 14px !important;
+        color: rgb(60, 60, 60) !important;
+      }
+    }
+  }

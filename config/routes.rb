@@ -13,8 +13,10 @@ Rails.application.routes.draw do
 
 
 
+
+
   # ユーザー側のルーティング
-  scope module: :users do
+    scope module: :users do
 
     resources :menus, :except => [:edit]
 
@@ -22,8 +24,6 @@ Rails.application.routes.draw do
 
 
 
-
- 
 
   end
 end

@@ -1,2 +1,53 @@
-<h1>ここはトップページです</h1>
-<p>Find me in app/views/tops/new.html.erb</p>
+<section>
+　　　　　　　　　　　　　　　　<div class="slider">
+                                
+                                    <%= image_tag('main1.png')  %>
+                               
+                                    <%= image_tag('main2.png')  %>
+                                
+                                    <%= image_tag('main3.png')  %>
+                                
+　　　　　　　　　　　　　　　　　</div>
+                    </div>
+</section>
+
+    <div class="container">
+
+
+            <div class="row">
+
+                 <div class="col-md-8 image">   <%#サイド画像の表示 %>
+                    
+                    <%= image_tag('test3.jpg') %> 
+               
+                </div>
+
+            
+                
+                <div class="col-md-4 feature">
+
+                
+                        <h1>Feature</h1>    　　<%# サイトの特徴を説明　%>
+                    
+                        <p>melhealhabitでは豊富なメニューの中から、</p>
+                        <p>食事を楽しみながら、体の管理を</p>
+                        <p>行いストレスフリーで理想の体型を目指す</p>
+                        <p>食事管理型ウェブアプリケーションです。</p>
+                        <p>数字として管理を継続することで、</p>
+                        <p>必ずを結果を導いてくれます。</p>
+
+                         <button id="show">Show</button>
+                         <button id="hide">Hide</button>
+                
+                </div>
+            
+            
+            </div>
+        
+     </div>
+
+<script>
+    window.sr= new scrollReveal();
+    sr.reveal('.feature');
+</script>
+
