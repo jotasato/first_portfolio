@@ -1,0 +1,76 @@
+<%= render 'layouts/users_header'%>
+
+<%#= render "devise/shared/error_messages", resource: resource %>
+
+                    
+    
+
+<div class="container infmation-box">
+
+    <div class="row">
+
+        <div class="col-md-4 col-md-offset-4 userinformation-logo">
+            <h1>USER INFORMATION</h1>
+              <span>ユーザー情報</span>
+        </div>      
+
+    </div>
+ 
+    <div class="row information-content">
+     
+        <div class="col-md-4 col-md-offset-4">
+        
+                <%= form_for @user do |f| %>
+
+                    <div class="field_name">
+                        <%= f.label :ニックネーム %>　
+                        <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder:'ニックネーム' %>
+                    </div>
+
+                    <div class="field_name">
+                        <%= f.label :郵便番号 %>　
+                        <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code", placeholder:'郵便番号' %>
+                    </div>
+
+                    <div class="field_name">
+                        <%= f.label :住所 %>　
+                        <%= f.text_field :address, autofocus: true, autocomplete: "address", placeholder:'住所' %>
+                    </div>
+
+
+                    <div class="field_name">
+                        <%= f.label :電話番号 %>　
+                        <%= f.text_field :tel , autofocus: true, autocomplete: "tel", placeholder:'電話番号' %>
+                    </div>
+
+                    <div class="field_name">
+                        <%= f.label :メールアドレス %>　
+                        <%= f.text_field :email , autofocus: true, autocomplete: "email", placeholder:'メールアドレス' %>
+                    </div>
+
+
+                    <div class="button-box">
+                        <%= link_to '戻る', user_path(current_user) , class: "btn btn-default btn-lg left" %>
+                    　　 <%= f.submit '更新', class: "btn btn-default btn-lg right" %>
+                    </div>
+            
+                <% end %>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                               
+                         
+         

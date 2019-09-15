@@ -39,6 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
 end
 
 group :development do
@@ -65,3 +66,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'#railsでjqueryを使用できるようにする
 gem 'devise-i18n' #デバイスのエラーメッセージ日本語翻訳
 gem 'devise-i18n-views'  #デバイスのビュー画面の日本語翻訳
+gem 'ransack'#検索窓
+gem 'paranoia' #ユーザーの論理削除
+gem "refile", require: "refile/rails", github: 'manfe/refile' # 画像投稿用gem
+gem "refile-mini_magick"  # 画像加工用（サイズ調整など）gem
+gem 'enum_help' #enumで指定したカラムをビューで日本語化するためのジェム

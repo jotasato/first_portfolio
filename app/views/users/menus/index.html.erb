@@ -1,0 +1,56 @@
+<%= render 'layouts/users_header'%>
+
+
+
+<div class="container">
+
+     <div class="row">
+
+        <div class="col-md-4 col-md-offset-4 menu-logo">
+            <h1>MENU</h1>
+            <span>メニュー</span>
+        </div>      
+
+    </div>
+
+
+    <div class="row menu-all">
+ 
+        <% @menus.each do |menu| %>
+        <%= menu.menu_name %>
+        <% end %>
+
+    
+            <div class="col-md-4">
+
+                <section class="card">
+                    <div class="menu-content">
+                        <h1 class="menu-title">鯖の塩焼き</h1>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <section class="card">
+                    <div class="menu-content">
+                        <h1 class="menu-title">鯖の塩焼き</h1>
+                    </div>
+                </section>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <section class="card">
+                    <div class="menu-content">
+                        <h1 class="menu-title">鯖の塩焼き</h1>
+                    </div>
+                </section>
+
+            </div>
+
+    </div>
+
+</div>

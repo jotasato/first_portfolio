@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_072640) do
+ActiveRecord::Schema.define(version: 2019_09_14_080859) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -61,17 +61,6 @@ ActiveRecord::Schema.define(version: 2019_09_06_072640) do
     t.integer "menu_id"
   end
 
-  create_table "measurements", force: :cascade do |t|
-    t.integer "user_id"
-    t.float "stature"
-    t.float "body_weight"
-    t.string "sex"
-    t.string "age"
-    t.float "momentum"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "menus", force: :cascade do |t|
     t.string "menu_name"
     t.string "calorie"
@@ -81,6 +70,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_072640) do
     t.boolean "is_deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "menu_image_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,13 +80,20 @@ ActiveRecord::Schema.define(version: 2019_09_06_072640) do
     t.string "postal_code"
     t.string "address"
     t.string "tel"
-    t.boolean "is_deleted", default: false
     t.string "objective"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
+    t.float "height"
+    t.float "weight"
+    t.integer "age"
+    t.float "momentum"
+    t.float "result"
+    t.string "gender"
+    t.index ["deleted_at"], name: "index_users_on_deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

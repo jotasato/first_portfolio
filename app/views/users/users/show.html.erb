@@ -1,2 +1,53 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<%= render 'layouts/users_header'%>
+
+    <div class="container">
+
+    
+      <div class="row">
+
+        <div class="col-md-4 col-md-offset-4 mypage-logo">
+            <h1>MY PAGE</h1>
+              <span>マイページ</span>
+
+              <br>
+              <br>
+              <br>
+
+             <%= @user.objective %>             
+        </div>      
+
+      </div>
+
+    
+      <div class="row">
+
+    　  <div class="col-lg-8 col-lg-offset-2">              				
+     
+                <br>            
+                <br>
+                <br>
+                <br>
+              <ul class="mypage_menu">
+                <li class="menu">
+                    <%= link_to "目標編集", objective_path(current_user) %>
+                </li>
+                  <br>
+                  <br> 
+                <li class="menu">
+                  <%= link_to "今日の食事記録", mealrecord_path %>
+                </li>
+                  <br>
+                  <br>
+                <li class="menu"><%= link_to "登録情報編集", edit_user_path %></li>
+                  <br>
+                  <br>  
+                <li class="menu"><%= link_to "退会する", quit_path %></li>
+                  <br>
+                  <br>
+              </ul>      
+        </div>
+
+      </div>
+
+    </div>

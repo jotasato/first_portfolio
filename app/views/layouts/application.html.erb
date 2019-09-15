@@ -9,13 +9,23 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="https://unpkg.com/scrollreveal@4.0.5/dist/scrollreveal.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
 
 
 
   </head>
 
   <body>
-    <%= yield %>
+            <div class="wrapper">
+              <%= yield %>
+            </div>
+    
+            <div class="kara_box"></div>
+            
+            <%= render 'layouts/footer'%>
+
+
+      
+
   </body>
 </html>

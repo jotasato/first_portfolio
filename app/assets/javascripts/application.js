@@ -12,18 +12,17 @@
 //
 //= require rails-ujs
 //= require activestorage
-
-//= require bootstrap-sprockets
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
+//= require bootstrap-sprockets
 //= require_tree .
+
 
 
 
 $(function() {
     $('.slider').slick({  　　　　　　//TOPページ jQueryスリックの記述
-        
-      
         //jQueryスリックのオプション　
             autoplay: true,　      // 自動再生。trueで自動再生される。
             autoplaySpeed:3000,    // 自動再生や左右の矢印でスライドが動くスピード
@@ -33,3 +32,49 @@ $(function() {
     });
 });
 
+
+$(document).on("turbolinks:load", function(){  //TOPページ　　文字を右からfadeさせる記述
+
+var ScrollrevealFade = {
+
+    origin: 'right',
+
+    distance: '100px',//移動範囲
+
+    scale: 1,//拡大表示（１で横スクロールが始まる）
+
+    rotate: { x: 0, y: 0, z: 0 }, //xは縦回転、yは横回転、zは傾き（風車みたいな感じ）
+
+    duration: 1000, //アニメーションの速度
+
+    delay :1600 //要素が表示するまでの待機時間（ディレイ）
+};
+
+    window.sr= new ScrollReveal();
+    sr.reveal('.feature', ScrollrevealFade, 100);
+
+});
+
+
+$(document).on("turbolinks:load", function(){  //TOPページ　文字を左からfadeさせる記述
+
+    var ScrollrevealFade = {
+    
+        origin: 'left',
+    
+        distance: '100px',//移動範囲
+    
+        scale: 1,//拡大表示（１で横スクロールが始まる）
+    
+        rotate: { x: 0, y: 0, z: 0 }, //xは縦回転、yは横回転、zは傾き（風車みたいな感じ）
+    
+        duration: 1200, //アニメーションの速度
+    
+        delay :1000 //要素が表示するまでの待機時間（ディレイ）
+    };
+    
+        window.sr= new ScrollReveal();
+        sr.reveal('.image', ScrollrevealFade, 100);
+    
+    });
+    
