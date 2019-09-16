@@ -1,0 +1,2 @@
+class MenuImage < ApplicationRecord
+end

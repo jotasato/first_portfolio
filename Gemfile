@@ -71,3 +71,5 @@ gem 'paranoia' #ユーザーの論理削除
 gem "refile", require: "refile/rails", github: 'manfe/refile' # 画像投稿用gem
 gem "refile-mini_magick"  # 画像加工用（サイズ調整など）gem
 gem 'enum_help' #enumで指定したカラムをビューで日本語化するためのジェム
+gem 'cocoon' #一つのフォームで親子関係のある複数モデルのレコード作成かつ子モデルのレコードを複数挿入したい場合
+gem 'carrierwave' #1対1の時に簡単にファイル実装できる機能
