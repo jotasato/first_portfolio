@@ -11,10 +11,8 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require activestorage
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -33,7 +31,7 @@ $(function() {
 });
 
 
-$(document).on("turbolinks:load", function(){  //TOPページ　　文字を右からfadeさせる記述
+$(function(){  //TOPページ　　文字を右からfadeさせる記述
 
 var ScrollrevealFade = {
 
@@ -56,7 +54,7 @@ var ScrollrevealFade = {
 });
 
 
-$(document).on("turbolinks:load", function(){  //TOPページ　文字を左からfadeさせる記述
+$(function(){  //TOPページ　文字を左からfadeさせる記述
 
     var ScrollrevealFade = {
     

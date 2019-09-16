@@ -1,0 +1,108 @@
+	<h1>新規商品登録</h1>
+	<%# if @product.errors.any? %>
+    <div class="rf">
+    <%#= @product.errors.count %> 件のエラーが発生しました。
+    </div>
+    <div>
+    <%# @product.errors.full_messages.each do |message| %>
+    	<div class="rf">
+        	<%#= message %>
+        </div>
+    <%# end %>
+    </div>
+	<%# end %>
+		<%= form_for Menu.new, url: admins_products_path do |f| %>
+					<div class="row">
+						<div class="col-md-6 clearfix">
+		
+        
+
+							<div>
+								<h3>レーベル名</h3>
+								<%#= f.select :label_id, Label.where(is_deleted: false).map{|o| [o.name, o.id]}, class:"form-control" %>
+							</div>
+						</div>
+
+						<div class="col-md-6 clearfix">
+							<section>
+								<h3>ジャンル</h3>
+								<%#= f.select :category_id, Category.where(is_deleted: false).map{|o| [o.name, o.id]}, class:"form-control" %>
+							</section>
+
+							<section class="wd-200">
+									<h3>在庫数</h3>
+									<%#= f.text_field :stock, autofocus: true, autocomplete: "stock", class:"form-control" %>
+							</section>
+
+							<div>
+									<h3>ステータス</h3>
+									<div style="display:inline-flex">
+										<div class=sales-botton1>
+											<%#= f.radio_button :saleinfo, :nowonsale %>
+										</div>
+							 			<p>販売中</p>
+							 		</div>
+							 		<div>
+								 		<div style="display:inline-flex">
+									 		<div>
+												<%#= f.radio_button :saleinfo, :soldout %>
+											</div>
+											<p>販売停止中</p>
+										</div>
+									</div>
+							</div>
+						</div>
+					</div>
+
+						<div class="row mt-50">
+							<div class="col-md-6">
+								<h3 class="mt-0">ジャケット画像</h3>
+									<div class="clearfix" id="owner">
+										<%#= f.fields_for :product_images do |m| %>
+											<div>
+												<%# render 'product_image_fields', f: m %>
+											</div>
+											<%#= f.attachment_field :product_images_product_images, placeholder: "ジャケット画像", class:"form-control attachment_width", id: 'post_img', multiple: true %>
+											<!-- <div class="box-small-group">
+												<img class="box0" src="#" id="avatar_img_prev0" >
+											</div>
+											<div class="box-small-group">
+												<img class="box1" src="#" id="avatar_img_prev1" >
+											</div>
+											<div class="box-small-group">
+												<img class="box2" src="#" id="avatar_img_prev2" >
+											</div>
+											<div class="box-small-group">
+												<img class="box3" src="#" id="avatar_img_prev3" >
+											</div> -->
+										<%# end %>
+										<div>
+										<%#= link_to_add_association 'ジャケット画像追加', f, :product_images %>
+										</div>
+									</div>
+							</div>
+
+
+							<div class="col-md-6 song-box">
+								<h3 class="mt-0">曲名</h3>
+								<div class="clearfix">
+									<%# 4.times do %>
+										<%#= f.fields_for :songs do |m| %>
+											<div>
+												<%# render 'song_fields', f: m %>
+											</div>
+										<%# end %>
+										<div>
+											<%#= link_to_add_association '曲追加', f, :songs %>
+										</div>
+									<%# end %>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="wd-300 mg-0-auto mt-50 mb-20">
+							<%#= f.submit "新規登録", class:"btn btn-default btn-lg new" %>
+						</div>
+		<%# end %>
+</div>

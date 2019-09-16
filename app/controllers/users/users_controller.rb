@@ -68,10 +68,7 @@ def clear  #ユーザー論理削除
 end
 
 def measurement #測定ページを表示する
-
   @user = current_user
-
-
 end    
 
 
@@ -83,8 +80,6 @@ def record #測定結果保存
   redirect_to result_path
 
  
-
-
 
 end
 

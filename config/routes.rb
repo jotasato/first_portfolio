@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
  
-  devise_for :admins
-  devise_for :users, :controllers => {
+
+devise_for :admins, :controllers => {
+    :registrations => 'admins/registrations'
+}
+  
+devise_for :users, :controllers => {
     :registrations => 'users/registrations'
 }
 
@@ -17,16 +21,15 @@ Rails.application.routes.draw do
   
     #アドミン側のルーティング
   
-       scope module: :admins do
+        namespace :admins do
+
 
         resources :admins
 
         resources :menus
 
-
-
-
-      end
+        
+        end
   
 
 
