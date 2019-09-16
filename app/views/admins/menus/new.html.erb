@@ -1,2 +1,14 @@
-<%#= form.label :img %>
-   <%#= form.file_field :menu_image, id: :book_img %>
+<%= form_for @menu, url: admins_menus_path, method: :post do |f| %>　　
+   
+
+   <%= f.label :menu_name %>
+   <%= f.text_field :menu_name %>
+
+   <%= f.label :menu_image_id %>
+   <%= f.file_field :menu_image_id %>
+
+   <%#= link_to '戻る', user_path(current_admin), class: "btn btn-default btn-lg objective-back" %>
+                    
+   <%= f.submit '更新', class: "btn btn-default btn-lg objective-update" %>
+
+<% end %>

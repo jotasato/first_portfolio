@@ -1,2 +1,8 @@
-<h1>Admins::Menus#show</h1>
-<p>Find me in app/views/admins/menus/show.html.erb</p>
+<h1>メニュー詳細</h1>
+<%= @menu.menu_name %>
+
+
+
+
+
+　<%= image_tag @menu.menu_image_id.url, size: "150x150" if @menu.menu_image_id? %>

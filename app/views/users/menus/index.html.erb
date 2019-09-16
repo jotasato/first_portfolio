@@ -15,42 +15,28 @@
 
 
     <div class="row menu-all">
- 
-        <% @menus.each do |menu| %>
-        <%= menu.menu_name %>
-        <% end %>
+      
+        
+            
+            <% @menus.each do |menu| %>
+        <div class="col-md-4">
+                        <%= menu.menu_name %>
+                        
+                    <% if menu.menu_image_id? %>
+                    　　 <%= link_to menu_path(menu.id) do %>
+                        　　<%= image_tag menu.menu_image_id.url, size: "200x200"  %>
+                        <% end %>
+                    <% else %>
+                    <p>画像ないよ</p>
+                    <% end %>
+
+        </div>
+            
+            <% end %>
+        
+       
 
     
-            <div class="col-md-4">
-
-                <section class="card">
-                    <div class="menu-content">
-                        <h1 class="menu-title">鯖の塩焼き</h1>
-                    </div>
-                </section>
-
-            </div>
-
-            <div class="col-md-4">
-
-                <section class="card">
-                    <div class="menu-content">
-                        <h1 class="menu-title">鯖の塩焼き</h1>
-                    </div>
-                </section>
-
-            </div>
-
-            <div class="col-md-4">
-
-                <section class="card">
-                    <div class="menu-content">
-                        <h1 class="menu-title">鯖の塩焼き</h1>
-                    </div>
-                </section>
-
-            </div>
-
     </div>
 
 </div>

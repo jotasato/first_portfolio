@@ -31,7 +31,7 @@ def update  #ユーザー情報更新
 end
 
 
-def edit
+def edit  
 
     @user = current_user
   
