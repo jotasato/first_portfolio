@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_093746) do
+ActiveRecord::Schema.define(version: 2019_09_18_085306) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -70,10 +70,10 @@ ActiveRecord::Schema.define(version: 2019_09_16_093746) do
 
   create_table "menus", force: :cascade do |t|
     t.string "menu_name"
-    t.string "calorie"
-    t.string "protein"
-    t.string "fat"
-    t.string "carbo"
+    t.integer "calorie"
+    t.integer "protein"
+    t.integer "fat"
+    t.integer "carbo"
     t.boolean "is_deleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

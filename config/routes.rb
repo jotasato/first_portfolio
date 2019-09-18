@@ -70,6 +70,7 @@ devise_for :users, controllers: {
         patch "users/measurement/:id" => "users#record", as: "record"
         get "users/result/:id" => "users#result", as: "result"
         get "users/mealrecord/:id" => "users#usermealrecord" , as: "usermealrecord"
+        get "users/graph/:id" => "users#graph", as: "graph"
         
         
       end

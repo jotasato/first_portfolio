@@ -6,10 +6,10 @@ class Users::MealrecordsController < ApplicationController
         if @mealrecord.save
             redirect_to user_path(current_user)
         else
-            
             redirect_to menu_path(params[:mealrecord][:menu_id])
         end
     
+        
     end
 
 

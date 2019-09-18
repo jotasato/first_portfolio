@@ -9,26 +9,42 @@
 
     </div>
 
+  
     <div class="row">
       <div class="col-md-12">
         <h2><%= current_user.nickname %>さんの食事記録</h2>
         <h2>あなたの維持カロリーは<%= current_user.result %>(kcal)です</h2>
+
+       <% sum = 0 %> 
+        <% fat = 0 %>
+        <% protein = 0 %>
+        <% carbo = 0 %>
+
+   
+   <h2>本日は
+       <% current_user.menus.each do |menu| %>  <%# 食事記録のカロリーと各栄養素をメニューが追加されるたびに合計値を計算する %>
+
+          <% fat += menu.fat %> <%# 現在食事記録で持っている脂質＋新しく追加された脂質 %>
+          <% carbo += menu.carbo %> <%# 現在食事記録で持っている,炭水化物＋新しく追加された炭水化物 %>
+          <% protein += menu.protein %> <%# 現在食事記録で持っているたんぱく質＋新しく追加されたたんぱく質 %>
+          <% sum += menu.calorie %> <%# 現在食事記録で持っているカロリー＋新しく追加されたカロリー %>
+     
+          <%= menu.menu_name %>
+           <br>
+
+      <% end %>
+      を食べました。
+      
+     </h2>
        
-     <%= @mealrecords.each do |mealrecord| %>
-        <h2>本日は</h2><h2><%= mealrecord_menu.menu_name %></h2> 
-        <h2>いくら丼<br></h2>
-        <h2>むき海老を食べました。</h2>
-        <% end %>
-        <br>
-        <h2>現在の摂取合計値は○○カロリーです。</h2>
 
-
-        <h2>残りカロリーは、○○カロリーです。</h2>
+      <h2>現在の摂取合計値は<%= sum %>です。</h2>
+        <h2>残りカロリーは、<%= current_user.result - sum %>カロリーです。</h2>
+        <h2>本日は<%= current_user.result - sum  %>カロリー残っています。</h2>
         <h2>本日の摂取栄養素の内訳は、</h2>
-        <h2>たんぱく質○g</h2>
-        <h2>脂質○g</h2>
-        <h2>炭水化物○gです。</h2>
-        <h2>本日は○○カロリー残っています。</h2>
+        <h2>たんぱく質<%= protein %>g</h2>
+        <h2>脂質<%= fat %>g</h2>
+        <h2>炭水化物<%= carbo %>gです。</h2>
 
       </div>
 
