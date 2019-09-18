@@ -1,0 +1,58 @@
+<div class="container">
+
+     <div class="row">
+
+        <div class="col-md-4 col-md-offset-4 menu-logo">
+            <h1>MEAL RECORD</h1>
+            <span>食事記録</span>
+        </div>      
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2><%= current_user.nickname %>さんの食事記録</h2>
+        <h2>あなたの維持カロリーは<%= current_user.result %>(kcal)です</h2>
+       
+     <%= @mealrecord_menus.each do |mealrecord_menu| %>
+        <h2>本日は</h2><h2><%= mealrecord_menu.menu_name %></h2> 
+        <h2>いくら丼<br></h2>
+        <h2>むき海老を食べました。</h2>
+        <% end %>
+        <br>
+        <h2>現在の摂取合計値は○○カロリーです。</h2>
+
+
+        <h2>残りカロリーは、○○カロリーです。</h2>
+        <h2>本日の摂取栄養素の内訳は、</h2>
+        <h2>たんぱく質○g</h2>
+        <h2>脂質○g</h2>
+        <h2>炭水化物○gです。</h2>
+        <h2>本日は○○カロリー残っています。</h2>
+
+      </div>
+
+
+    </div>
+
+        
+
+
+</div>
+      
+
+        
+
+
+
+
+
+
+
+
+
+
+　　<%#= link_to '戻る', user_path(current_user), class: "btn btn-default modoru" %>
+
+
+</div>

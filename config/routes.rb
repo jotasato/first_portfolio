@@ -21,7 +21,6 @@ devise_for :users, controllers: {
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
-
   
   root "tops#new"
   
@@ -32,10 +31,14 @@ devise_for :users, controllers: {
   
         namespace :admins do
 
+          
+
 
         resources :admins
 
         resources :menus
+
+        
 
         
         end
@@ -49,6 +52,10 @@ devise_for :users, controllers: {
 
         resources :menus, :except => [:edit]
 
+        resources :mealrecords
+
+        
+
         resources :users do
           collection do
             patch :renew
@@ -59,10 +66,10 @@ devise_for :users, controllers: {
             # patch "users" => "users#renew" , as:"renew"
         get "users/quit/:id" => "users#quit", as: "quit"
         delete "users/quit/:id" => "users#clear", as: "clear"
-        get "users/menus/:id" => "menus#new", as: "mealrecord"
         get "users/measurement/:id" => "users#measurement", as: "measurement"
         patch "users/measurement/:id" => "users#record", as: "record"
         get "users/result/:id" => "users#result", as: "result"
+        get "users/mealrecord/:id" => "users#usermealrecord" , as: "usermealrecord"
         
         
       end

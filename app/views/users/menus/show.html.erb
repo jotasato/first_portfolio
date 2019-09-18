@@ -3,91 +3,32 @@
 
 <h1>メニュー詳細</h1>
 
-	<div class="bd-1sb container mb-20 bc-b">
-		<div class="row bs bc-b">
-					<div id="slide" class="db col-md-3 pr-0 bc-b pr clearfix">
-						<%# if @product.product_images.count == 0 %>
-									<%= image_tag @menu.menu_image_id.url, size: "250x250" if @menu.menu_image_id? %>
-							<%# @product.product_images.each do |image| %>
-									<%#= attachment_image_tag image, :product_image, class: "profile-thumb margin_icon bd-1sg bs ml-20 mt-5 mb-20 pa", size: "250x250" %>
-							<%# end %>
-						<%# end %>
-					</div>
-					<div>
-							<div class="col-md-9 bc-b">
-									<div class="clearfix">
-										<p class="fl mt-20 fc-g fw">シングル / アルバム名</p>
-										<div class="fl mt-5 ml-20 fs-30 wd-500 fw length_event">
-										<%= @menu.menu_name %>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-md-8 bc-b">
-											<div class="mt-40 clearfix">
-												<p class="fl fc-g fw">アーティスト</p>
-												<div class="fl ht-20 ml-20 fw">
-													<%#= @product.artist %>
-												</div>
-											</div>
-											<div class="mt-40 clearfix">
-												<div class="fl">
-													<p class="dib fc-g fw">ジャンル</p>
-													<div class="dib ml-20 fw length_event">
-														<%#= @product.category.name.truncate(14) %>
-													</div>
-												</div>
-												<div class="fl ml-100">
-													<p class="dib fc-g fw">レーベル</p>
-													<div class="dib ml-20 fw length_event">
-														<%#= @product.label.name.truncate(14) %>
-													</div>
-												</div>
-											</div>
-											<div class="mt-40 clearfix">
-												<div class="fl fw">
-													<div>
-														<p class="dib fw">在庫数</p>
-														<p class="dib fw">
-															<%#= @product.stock %>
-														</p>
-														<p class="dib fw">個</p>
-													</div>
-												</div>
-												<div class="fl ml-50 fw">
-													<div>
-														<%#= @product.saleinfo_i18n %>
-													</div>
-												</div>
-												<div class="dib ml-50">
-
-												 <%#= @product.favorites.count %> ❤️</div>
-
-												<div class="dib ml-50">
-													<p class="dib">価格</p>
-								  					<p class="dib">
-								  						<%#= @product.price %>
-								  					</p>
-								  					<p class="dib">円(税抜)</p>
-												</div>
-											</div>
-										</div>
-										<div class="col-md-4">
-							  				<div class="mt-130 mr-0">
-							  					<%#= link_to edit_admins_product_path(@product.id) do %>
-								  					<button type="button" class="bd-r-5 wd-200 form-control btn btn-default">編集</button>
-								  				<%# end %>
-										  	</div>
-										  	<div class="mt-5 mr-0">
-										  		<%#= link_to admins_products_clear_path(@product.id), method: :patch do %>
-								  					<button type="button" class="bd-r-5 wd-200 form-control btn btn-default">削除</button>
-								  				<%# end %>
-										  	</div>
-										</div>
-								  </div>
-							</div>
-					</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+			   <%= image_tag @menu.menu_image_id.url, size: "250x250" if @menu.menu_image_id? %>	
 			</div>
-			<div>
+		<div>
+
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<%= @menu.menu_name %>
+				<%= @menu.calorie %> (kcal)
+				<%= @menu.protein %>) (g)
+				<%= @menu.fat %> (g)
+				<%= @menu.carbo %> (g)
+				<!-- ここで、中間テーブルを扱うコントローラ、mealrecords#createに、@menuのidを保持したまま送る。 -->
+				<%= form_for(@mealrecord, path: mealrecords_path) do |f| %>
+					<%#= f.hidden_field :user_id, current_user.id %>
+					<%= f.hidden_field :menu_id, value: @menu.id %>
+					<%= f.submit '食べる', class: "btn btn-default btn-lg objective-update" %>
+					
+				<% end %>
+			</div>
+	    </div>
+        <%= link_to '戻る', menus_path, class: "btn btn-default" %>
+	</div>
+								
 					
 						
 	

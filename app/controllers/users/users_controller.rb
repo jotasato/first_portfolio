@@ -20,7 +20,7 @@ end
 def update  #ユーザー情報更新
 
   
-        @user = current_user
+       @user = current_user
     if @user.update(user_params) 
         flash[:notice] = "更新成功しました"
         redirect_to user_path(current_user) #redirectの場合はnotice
@@ -88,7 +88,13 @@ end
 def result #測定結果表示
 
   @user = current_user
-  
+
+end
+
+def usermealrecord　#ログインユーザーの食事記録を表示する
+  @user = current_user
+  @menus = @user.menus
+  @mealrecord_menus = @user.mealrecord_menus
 
 
 

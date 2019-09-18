@@ -1,8 +1,4 @@
 <h1>メニュー詳細</h1>
 <%= @menu.menu_name %>
-
-
-
-
-
 　<%= image_tag @menu.menu_image_id.url, size: "150x150" if @menu.menu_image_id? %>
+ <%=link_to 'メニューを削除', admins_menu_path(@menu.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

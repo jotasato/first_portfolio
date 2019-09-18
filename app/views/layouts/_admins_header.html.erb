@@ -9,10 +9,6 @@
                                         <%= image_tag "melhealhabit.jpg",class: "logo-btn" %>
                                     <% end %>
                             </div>
-                            <%#= search_form_for @search, url: root_path do |f| %>
-                                <%#= f.search_field :title_or_artist_cont, placeholder: 'シングル/アルバム名又はアーティスト名' %>
-                                <%#= f.submit ("検索"), :class => 'kensaku' %>
-                            <%# end %>
 
                          <% if admin_signed_in? %>
                             <div class="col-lg-2 user_menu">
@@ -25,7 +21,7 @@
                             </div>
                             <div class="col-lg-2 user_menu">
                                 <li class="">
-                                    <%= link_to "マイページ", admins_admin(current_user) %>
+                                    <%= link_to "マイページ", admins_admin_path(current_admin) %>
                                 </li>
                             </div>
                             <div class="col-lg-2 user_menu">
@@ -37,14 +33,9 @@
 
                         <% else %>
                             <div class="registration_box">
-                                <div class="sing_up">
-                                    <li class="">
-                                        <%= link_to "新規登録", new_admin_registration_path %>
-                                    </li>
-                                </div>
+                               
                                 <div class="sign_in">
                                     <li class="">
-                                        <%= link_to "ログイン",  new_admin_session_path %>
                                     </li>
                                 </div>
                              </div>

@@ -1,14 +1,36 @@
+
+  <%= render 'layouts/admins_header'%>
+
+
 <%= form_for @menu, url: admins_menus_path, method: :post do |f| %>　　
    
 
-   <%= f.label :menu_name %>
+   <%= f.label :メニュー名 %>
    <%= f.text_field :menu_name %>
 
-   <%= f.label :menu_image_id %>
+    
+     <%= f.label :カロリー %>
+     <%= f.text_field :calorie%>(kcal)
+
+     <%= f.label :たんぱく質 %>
+     <%= f.text_field :protein %>(g)
+
+     <%= f.label :脂質 %>
+     <%= f.text_field :fat %>(g)
+
+     <%= f.label :炭水化物 %>
+     <%= f.text_field :carbo %>(g)
+
+
+   
+
+   <%= f.label :メニュー画像 %>
    <%= f.file_field :menu_image_id %>
 
-   <%#= link_to '戻る', user_path(current_admin), class: "btn btn-default btn-lg objective-back" %>
+   <%= link_to '戻る', admins_admin_path(current_admin), class: "btn btn-default btn-lg objective-back" %>
                     
    <%= f.submit '更新', class: "btn btn-default btn-lg objective-update" %>
+
+
 
 <% end %>

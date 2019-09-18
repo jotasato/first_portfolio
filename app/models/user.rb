@@ -15,5 +15,11 @@ class User < ApplicationRecord
     self.result = 665.1 + (9.6 * params[:weight].to_i) + (1.7 * params[:height].to_i) - (7.0 *params[:age].to_i) * momentum.to_f
   end
 
+   has_many :mealrecords, dependent: :destroy
+
+   has_many :mealrecord_menus, through: :mealrecords, source: :menu
+
+
+
   end
 end
