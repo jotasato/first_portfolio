@@ -94,7 +94,7 @@ end
 def usermealrecord　#ログインユーザーの食事記録を表示する
   @user = current_user
   @menus = @user.menus
-  @mealrecord_menus = @user.mealrecord_menus
+  @mealrecords = @user.mealrecords
 
 
 

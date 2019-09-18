@@ -1,11 +1,12 @@
 
 
 class Users::MenusController < ApplicationController
-
+  PER = 6 #ページングを表示する商品の数
 
 
   def index
-    @menus = Menu.all
+    
+    @menus = Menu.page(params[:page]).per(PER)
   end
 
   def show

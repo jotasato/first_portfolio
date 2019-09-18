@@ -73,3 +73,6 @@ gem "refile-mini_magick"  # 画像加工用（サイズ調整など）gem
 gem 'enum_help' #enumで指定したカラムをビューで日本語化するためのジェム
 gem 'cocoon' #一つのフォームで親子関係のある複数モデルのレコード作成かつ子モデルのレコードを複数挿入したい場合
 gem 'carrierwave' #1対1の時に簡単にファイル実装できる機能
+gem 'kaminari', '~> 0.17.0' #ページング機能
+gem 'kaminari-bootstrap', '~> 3.0.1'
+

@@ -25,6 +25,7 @@
                         <% if menu.menu_image_id? %>
                         　　  <%= link_to menu_path(menu.id) do %>
                             　<%= image_tag menu.menu_image_id.url, size: "200x200"  %>
+
                             <% end %>
                         <% else %>
                     　　  <p>画像がありません</p>
@@ -34,9 +35,9 @@
                 
         <% end %>
     
-       
-
-    
     </div>
 
+<%= paginate @menus %>
+
 </div>
+

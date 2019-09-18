@@ -14,7 +14,7 @@
         <h2><%= current_user.nickname %>さんの食事記録</h2>
         <h2>あなたの維持カロリーは<%= current_user.result %>(kcal)です</h2>
        
-     <%= @mealrecord_menus.each do |mealrecord_menu| %>
+     <%= @mealrecords.each do |mealrecord| %>
         <h2>本日は</h2><h2><%= mealrecord_menu.menu_name %></h2> 
         <h2>いくら丼<br></h2>
         <h2>むき海老を食べました。</h2>

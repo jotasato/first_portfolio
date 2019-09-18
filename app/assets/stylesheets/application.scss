@@ -341,6 +341,13 @@ width: 350px;
   padding-top: 50px;
 
 }
+.text-center //ページネーション中央寄せ
+{
+  margin-top: 100px;
+  text-align: center;
+  
+
+}
 
 
 
@@ -562,3 +569,14 @@ td
   font-family: serif;
   font-size: x-large;
 }
+
+// メニュー詳細画面
+
+
+#nutrition
+{
+  font-size: 30px !important; //栄養のフォントサイズ
+  font-family: serif; //栄養のフォント字体　
+} 
+
+
