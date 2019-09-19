@@ -14,11 +14,9 @@ class Admins::MenusController < ApplicationController
   end
 
   def create
-   @menu = Menu.new(menu_params)
-   @menu.save
-   redirect_to admins_menu_path(current_admin)
-  
-  
+    @menu = Menu.new(menu_params)  
+    @menu.save
+    redirect_to admins_menu_path(current_admin)
   end
 
   def update
@@ -27,12 +25,8 @@ class Admins::MenusController < ApplicationController
   def destroy
     @menu = Menu.find(params[:id])
     @menu.destroy
-    redirect_to admins_menus_path
-
-  
+    redirect_to admins_menus_path 
   end
-
-
 
 
 private

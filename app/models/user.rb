@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   enum gender: { male: 0, female: 1 }
 
-  
+  has_many :graphs
   has_many :mealrecords 
   has_many :menus, dependent: :destroy, through: :mealrecords
 

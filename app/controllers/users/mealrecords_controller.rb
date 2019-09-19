@@ -19,7 +19,10 @@ class Users::MealrecordsController < ApplicationController
     end
 
 
-    def destroy
+    def destroy  #選択した食事記録を削除s
+        @mealrecord = Mealrecord.find(params[:id])
+        @mealrecord.destroy
+        redirect_to usermealrecord_path
 
 
 

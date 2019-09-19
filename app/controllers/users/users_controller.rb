@@ -72,15 +72,32 @@ class Users::UsersController < ApplicationController
   end
 
   #ログインユーザーの食事記録を表示する
-  def       usermealrecord
+  def usermealrecord
     @user = current_user
+    @mealrecords = Mealrecord.where(user_id: @user.id).created_today
+    @graph = Graph.new
   end
 
-  def graph
-  
-  
+  def graph #グラフページを表示する
 
-  
+    @unko = []
+    @graphs = Graph.where(user_id: current_user.id, created_at: Time.now.all_month).pluck(:created_at)
+    @graphs = Graph.where(user_id: current_user.id, created_at: Time.now.all_month).pluck(:remaining_calorie)
+    @graphs.each do |graph| 
+      @unko.push(graph.created_at.strftime("%d").to_i)
+    end
+
+    @days = [*1..31]
+
+    @days.each do |day|
+      @unko
+    end
+
+    # @graphs.map{ |graph| puts graph.created_at.strftime("%d").to_i }
+    
+    binding.pry
+    # @remaining_calories = Graph.pluck("remaining_calorie")
+    # @remaining_calories[0] = 1000
   end
   
   private

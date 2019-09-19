@@ -1,28 +1,59 @@
+<%= render 'layouts/users_header'%>
+
+    <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-4 col-md-offset-4 measurement-logo">
+                    <h1>CALORIE GRAPH</h1>
+                    <span>カロリーグラフ</span>
+   
+                </div>   
+            </div>
+    
 
 
+    
+            <canvas id="myChart"></canvas>
 
-<canvas id="myChart"></canvas>
+            <script>
+            //maxの数字を上限値にランダムな数字を生成する関数
+            function getRandomInt(max){
+                return Math.floor(Math.random()* Math.floor(max));
+            }
 
+            //dayという配列を生成 [日付]
+            var  day = new Array();
+            //valueという配列を生成 [カロリー]
+            var  calorie = new Array();
 
-<script>
+            for (var i = 1; i < 31; i++){
+                day[i] = i+'日';
+                // calorie[i] = getRandomInt(1000);
+            }
+            // console.log(day);
+                
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+                // The data for our dataset
+                data: {
+                    labels: day, //X軸の月表示
+                    datasets: 
+                        label: '日別消費カロリー', //
+                        backgroundColor: 'pink',
+                        borderColor: 'pink',
+                        data: <%= @remaining_calories %>,
+                        lineTension: 0, //ベジェ曲線の張り具合。 0（ゼロ）を指定すると直線になる。 0.1、0.2、・・・など増やしていくと曲がり具合が変わる。
+                        fill: false, //線の下側の領域に色を塗るか否かの指定。 false で無色になる。
+                        borderWidth: 3 //線の太さ。
+                    }]
+                },
 
-console.log("<%=current_user.menus %>")
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'line',
-    // The data for our dataset
-    data: {
-        labels: ['1日','2日', '2月', '3月', '4月', '5月', '6月', '7月','8月'],
-        datasets: [{
-            label: 'My First dataset',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [1,2,3, 4,5,6,7]
-        }]
-    },
+                // Configuration options go here
+                options: {}
+            });
+            </script>
 
-    // Configuration options go here
-    options: {}
-});
-</script>
+    </div>

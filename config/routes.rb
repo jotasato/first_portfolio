@@ -54,7 +54,7 @@ devise_for :users, controllers: {
 
         resources :mealrecords
 
-        
+        resources :graphs, :only => [:create]
 
         resources :users do
           collection do
@@ -69,7 +69,7 @@ devise_for :users, controllers: {
         get "users/measurement/:id" => "users#measurement", as: "measurement"
         patch "users/measurement/:id" => "users#record", as: "record"
         get "users/result/:id" => "users#result", as: "result"
-        get "users/mealrecord/:id" => "users#usermealrecord" , as: "usermealrecord"
+        get "my_mealrecord" => "users#usermealrecord" , as: "usermealrecord"
         get "users/graph/:id" => "users#graph", as: "graph"
         
         

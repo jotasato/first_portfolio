@@ -28,24 +28,33 @@
                 <br>
                 <br>
                 <br>
-              <ul class="mypage_menu">
+            <ul class="mypage_menu">
                 <li class="menu">
-                    <%= link_to "目標編集", objective_path(current_user) %>
+                     <%= link_to "目標編集", objective_path(current_user) %>
                 </li>
-                  <br>
-                  <br> 
+                    <br>
+                    <br> 
                 <li class="menu">
-                  <%= link_to "今日の食事記録", usermealrecord_path(current_user) %>
+                      <%= link_to "今日の食事記録", usermealrecord_path %>
                 </li>
-                  <br>
-                  <br>
-                <li class="menu"><%= link_to "登録情報編集", edit_user_path %></li>
-                  <br>
-                  <br>  
-                <li class="menu"><%= link_to "退会する", quit_path %></li>
-                  <br>
-                  <br>
-              </ul>      
+                    <br>
+                    <br>
+                <li class="menu">
+                      <%= link_to "消費カロリー確認", graph_path(current_user) %>
+                </li>
+                    <br>
+                    <br>  
+                <li class="menu">
+                      <%= link_to "登録情報編集", edit_user_path %>
+                </li>
+                    <br>
+                    <br>  
+                <li class="menu">
+                      <%= link_to "退会する", quit_path %>
+                </li>
+                    <br>
+                    <br>
+            </ul>      
         </div>
 
       </div>
