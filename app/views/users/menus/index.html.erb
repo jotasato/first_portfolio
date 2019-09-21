@@ -18,11 +18,11 @@
             
         <% @menus.each do |menu| %>
             <div class="col-md-4">
-                            <%= menu.menu_name %>
                             
                         <% if menu.menu_image_id? %>
                         　　  <%= link_to menu_path(menu.id) do %>
-                            　<%= image_tag menu.menu_image_id.url, size: "200x200"  %>
+                            　<%= image_tag menu.menu_image_id.url, size: "200x200"  %><br>
+                            <%= menu.menu_name %>
 
                             <% end %>
                         <% else %>
