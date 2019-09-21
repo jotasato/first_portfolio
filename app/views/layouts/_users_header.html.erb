@@ -1,61 +1,67 @@
 <header>
 
-      
-<div class="fixed_nav z-index">
+        
+    <div class="fixed_nav z-index">
 
-    <div class="container header_box">
-        <div class="row header_content">
-                            <div class="col-lg-4">
-                                    <%= link_to root_path do %>
-                                        <%= image_tag "melhealhabit.jpg",class: "logo-btn" %>
-                                    <% end %>
-                            </div>
-                            <%#= search_form_for @search, url: root_path do |f| %>
-                                <%#= f.search_field :title_or_artist_cont, placeholder: 'シングル/アルバム名又はアーティスト名' %>
-                                <%#= f.submit ("検索"), :class => 'kensaku' %>
-                            <%# end %>
+        <div class="container header_box">
+            <div class="row header_content">
+                <div class="col-lg-4">
+                    <%= link_to root_path do %>
+                        <%= image_tag "melhealhabit.jpg",class: "logo-btn" %>
+                    <% end %>
+                </div>
 
-                         <% if user_signed_in? %>
-                            <div class="col-lg-2 user_menu">
-                                <li class="">
-                                    <%= link_to "メニュー一覧", menus_path %>
-                                </li>
-                            </div>
-                            <div class="col-lg-2 user_menu">
-                                <li class="">
-                                    <%= link_to "測定する", measurement_path(current_user) %>
-                                </li>
-                            </div>
-                            <div class="col-lg-2 user_menu">
-                                <li class="">
-                                    <%= link_to "マイページ", user_path(current_user) %>
-                                </li>
-                            </div>
-                            <div class="col-lg-2 user_menu">
-                                <li class="">
-                                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-                                </li>
-        </div>              </div>
+                <% if user_signed_in? %>
+                    <div class="col-lg-2 user_menu">
+                        <li class="">
+                            <%= link_to "メニュー一覧", menus_path %>
+                        </li>
+                    </div>
+                    <div class="col-lg-2 user_menu">
+                        <li class="">
+                            <%= link_to "測定する", measurement_path %>
+                        </li>
+                    </div>
+                    <div class="col-lg-2 user_menu">
+                        <li class="">
+                            <%= link_to "マイページ", user_path(current_user) %>
+                        </li>
+                    </div>
+                    <div class="col-lg-2 user_menu">
+                        <li class="">
+                            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                        </li>
+                    </div>
+            </div>           
+                
+                <% else %>
+
+                    <div class="col-lg-2 user_menu">
+                        <li class="">
+                            <%= link_to "メニュー一覧", menus_path %>
+                        </li>
+                    </div>
+                    <div class="col-lg-2 user_menu">
+                        <li class="">
+                            <%= link_to "測定する", measurement_path %>
+                        </li>
+                    </div>
+                    <div class="col-lg-2 user_menu">
+                        <li class="">
+                            <%= link_to "ログイン", new_user_session_path %>
+                        </li>
+                    </div>
+                    <div class="col-lg-2 user_menu">
+                        <li class="">
+                             <%= link_to "新規登録", new_user_registration_path %>
+                        </li>
+                    </div>
+                <% end %>
+        </div>
     </div>
 
-                        <% else %>
-                            <div class="registration_box">
-                                <div class="sing_up">
-                                    <li class="">
-                                        <%= link_to "新規登録", new_user_registration_path %>
-                                    </li>
-                                </div>
-                                <div class="sign_in">
-                                    <li class="">
-                                        <%= link_to "ログイン", new_user_session_path %>
-                                    </li>
-                                </div>
-                             </div>
-                        <% end %>
-</div>
-
-                <div class="notice">
-                 <%= flash[:notice] %>
-                </div>
-                
+                    <div class="notice">
+                    <%= flash[:notice] %>
+                    </div>
+                    
 </header>

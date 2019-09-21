@@ -24,7 +24,17 @@
   clear: both;
 }
  
+//全体
 
+.moji
+{
+  color: #69a538;
+}
+
+a
+{
+ color: #333333;
+}
 
 
  //TOP画面
@@ -63,7 +73,7 @@
 
  .theme    //TOPページサイド画像
  {
-  background-color: #111;
+  background-color: #333333;
   color: #fcfbf8;
   display: inline-block;
   padding: 10px 10px;
@@ -89,19 +99,19 @@
   text-align: center;
   background-color: #fcfbf8;
   margin:0 -13%;
-  padding: 5% 0 15% 0;
+  padding: 10% 0 15% 0;
   
 }
  
 .sign_in.btn-primary //ログインボタン
 {
-  background-color: #000;
-  border-color: #000;
+  background-color: #333333;
+  border-color: #333333;
   color: #FFFFFF;
   border-radius: 5px;
   width: 350px;
   height: 60px;
-  margin-top: 30px;
+  margin-top: 60px;
 }
 
 #user_email //メール入力フォーム
@@ -188,7 +198,7 @@
     margin-top: 50px;
     width: 350px;
     height: 53px;
-    background-color: black;
+    background-color: #333333;
     color: white;
     border-radius: 5px;
 }
@@ -206,7 +216,7 @@ footer //フッター大枠
 {
 	height: 200px;
 	text-align: center;
-  background-color: #1c1f21;
+  background-color: #333333;
   margin-top: auto;
 }
 
@@ -228,7 +238,7 @@ footer p //フッター文字
 
 .kara_box //footer最下部に固定するための記述
 {
-  height: 200px;
+  height: 500px;
 }
 
 
@@ -239,32 +249,11 @@ footer p //フッター文字
 .user_menu   //ログイン時のCSS
 {
 font-size: 20px;
-color: black;
+color: #333333;
 list-style: none;
 float: left;
 padding-left: 10px;
 margin-top: 60px;
-}
-
-.sign_in //未ログイン時のログインするリンク
-{
-  float: left;
-  font-size: 30px;
-  color: black;
-  list-style: none;
-  padding-left: 10px;
-  margin-top: 60px;
-  margin-left: 60px;
-}
-
-.sing_up{
-  float: left;
-font-size: 30px;
-color: black;
-list-style: none;
-padding-left: 10px;
-margin-top: 60px;
-  
 }
 
 
@@ -324,7 +313,7 @@ width: 350px;
   font-size: 20px;
   margin-bottom: 20px;
   text-align: center;
-  color: #333;
+  color: #333333;
 }
 
 .menu-logo //メニュー一覧ロゴ
@@ -350,6 +339,26 @@ width: 350px;
 
 }
 
+.menu_text  //メニュー名部分
+{
+ width: 200px;
+ text-align: center;
+ margin: 0 auto;
+ padding-top: 30px;
+}
+
+.menu-image //メニュー画像
+{
+ text-align: center;
+}
+
+
+//メニュー詳細
+.menu_show
+{
+ padding-top: 50px;
+}
+
 
 
 //ユーザー情報編集ページ
@@ -357,7 +366,7 @@ width: 350px;
 .infmation-box //コンテナ大枠
 {
   background-color: #efefef;
-  height: 650px;
+  height: 750px;
 }
 
 .userinformation-logo //ロゴボタン
@@ -380,14 +389,17 @@ width: 350px;
 
 }
 
-.left //戻るボタン
-{
+.left{
   width: 150px;
+  position: relative;
+  left: 310px;
 }
 
 .right  //更新ボタン
 {
   width: 150px;
+  position: relative;
+  right: 310px;
 }
 
 
@@ -413,6 +425,7 @@ width: 350px;
 {
   text-align: center;
   margin-top: 50px;
+  font-family: Impact,'Anton', sans-serif;
 }
 
 .button-box //戻る更新ボタンボックス
@@ -461,6 +474,19 @@ width: 350px;
   background-color: #efefef;
   height: 650px;
 
+}
+
+.objective-box2
+{
+  background-color: #333333;
+  color: #fcfbf8;
+  display: inline-block;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  font-size: 45px;
+  width: 524px;
+  text-align: start;
+  margin-top: 30px;
 }
 
 .row.objective-box //ロウ大枠
@@ -515,9 +541,10 @@ width: 350px;
 {
 text-align: center;
 background-color: #efefef;
-border: 1px solid #1c1f21;
-color: #1c1f21;
+border: 1px solid #333333;
+color: #333333;
 margin-top: 50px;
+font-size: 20px;
 
 }
 
@@ -549,8 +576,8 @@ th
   vertical-align: inherit;
   font-weight: bold;
   text-align: center;
-  background-color: #1c1f21;
-  border: 1px solid #1c1f21;
+  background-color: #333333;
+  border: 1px solid #333333;
   color: #FFFFFF;
 }
 
@@ -560,7 +587,7 @@ td
     width: 90px;
     font-size: 12px;
     background-color: #fafafa;
-    border: 1px solid #1c1f21;
+    border: 1px solid #333333;
     display: table-cell;
     vertical-align: inherit;
 }
@@ -576,7 +603,7 @@ td
 
 #nutrition
 {
-  font-size: 30px !important; //栄養のフォントサイズ
+  font-size: 25px !important; //栄養のフォントサイズ
   font-family: serif; //栄養のフォント字体　
 } 
 
@@ -584,4 +611,17 @@ td
 .col-md-4
 {
   padding-top: 30px;
+}
+
+//グラフ部分
+
+#myChart
+{
+  padding-top: 50px;
+}
+
+.graphback
+{
+ margin-top: 50px;
+ width: 150px;
 }

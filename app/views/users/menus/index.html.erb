@@ -8,7 +8,7 @@
 
         <div class="col-md-4 col-md-offset-4 menu-logo">
             <h1>MENU</h1>
-            <span>メニュー</span>
+            <span class="moji">メニュー</span>
         </div>      
 
     </div>
@@ -20,9 +20,11 @@
             <div class="col-md-4">
                             
                         <% if menu.menu_image_id? %>
-                        　　  <%= link_to menu_path(menu.id) do %>
-                            　<%= image_tag menu.menu_image_id.url, size: "200x200"  %><br>
-                            <%= menu.menu_name %>
+                        　  <%= link_to menu_path(menu.id) do %>
+                            　<div class="menu-image"><%= image_tag menu.menu_image_id.url, size: "200x200"%></div><br>
+                            <div class="menu_text">
+                              <%= menu.menu_name %>
+                            </div>
 
                             <% end %>
                         <% else %>

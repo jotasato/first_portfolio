@@ -6,7 +6,7 @@
 
         <div class="col-md-4 col-md-offset-4 measurement-logo">
             <h1>MEASURMENT RESULT</h1>
-            <span>測定結果</span>
+            <span class="moji">測定結果</span>
    
         </div>      
 
@@ -17,7 +17,7 @@
         <div class="col-md-4 col-md-offset-4 measurement-logo">
             <h1><span><%= @user.nickname %>さんの測定結果は</h1></span>
                 <br>
-            <h1><%= @user.result %>(kcal)です</span></h1>
+            <h1><%= @user.result.round(1) %>(kcal)です</span></h1>
         </div>
 
     </div>

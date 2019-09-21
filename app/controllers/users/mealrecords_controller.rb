@@ -4,7 +4,7 @@ class Users::MealrecordsController < ApplicationController
         @mealrecord = Mealrecord.new(mealrecord_params)
         @mealrecord.user_id = current_user.id
         if @mealrecord.save
-            redirect_to user_path(current_user)
+            redirect_to usermealrecord_path
         else
             redirect_to menu_path(params[:mealrecord][:menu_id])
         end

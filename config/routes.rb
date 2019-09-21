@@ -55,7 +55,7 @@ devise_for :users, controllers: {
         resources :mealrecords
 
         resources :graphs, :only => [:create]
-
+        get "users/measurement" => "users#measurement", as: "measurement"
         resources :users do
           collection do
             patch :renew
@@ -66,7 +66,7 @@ devise_for :users, controllers: {
             # patch "users" => "users#renew" , as:"renew"
         get "users/quit/:id" => "users#quit", as: "quit"
         delete "users/quit/:id" => "users#clear", as: "clear"
-        get "users/measurement/:id" => "users#measurement", as: "measurement"
+      
         patch "users/measurement/:id" => "users#record", as: "record"
         get "users/result/:id" => "users#result", as: "result"
         get "my_mealrecord" => "users#usermealrecord" , as: "usermealrecord"

@@ -5,7 +5,7 @@
 
         <div class="col-md-4 col-md-offset-4 mypage-logo">
             <h1>MENU DETAILS</h1>
-              <span>メニュー詳細</span>
+              <span class="moji">メニュー詳細</span>
 
               <br>
               <br>
@@ -18,18 +18,20 @@
 
 
 	<div class="container">
-		<div class="row">
+		<div class="row menu_show">
 			<div class="col-md-6">
 			   <%= image_tag @menu.menu_image_id.url, size: "250x250" if @menu.menu_image_id? %>
 			</div>	
 			
 		    <div class="col-md-6 ">
 			 <div id="nutrition">
-				メニュー名　　<%= @menu.menu_name %>　<br>
+				<div class="menu_name">メニュー名　　<%= @menu.menu_name %></div>　<br>
 				カロリー　　　<%= @menu.calorie %> (kcal)　<br>
 				たんぱく質　　<%= @menu.protein %> (g)　<br>
 				脂質　　　　　<%= @menu.fat %> (g)　<br>
 				炭水化物　　　<%= @menu.carbo %> (g)　<br>
+
+				
 			 
 				<!-- ここで、中間テーブルを扱うコントローラ、mealrecords#createに、@menuのidを保持したまま送る。 -->
 				<%= form_for(@mealrecord, path: mealrecords_path) do |f| %>
@@ -39,14 +41,12 @@
 					<br>
 					<br>
 					<br>
-					<br>
-					<br>
 					<%= link_to '戻る', menus_path, class: "btn btn-default btn-lg" %>
-					<%= f.submit '食べる', class: "btn btn-default btn-lg " %>
-					
+					<%= f.submit '食べる', class: "btn btn-default btn-lg " %>		
 					
 				<% end %>
 			</div>
+
 	    </div>
         
 								
