@@ -1,5 +1,7 @@
 <%= render 'layouts/users_header'%>
 
+
+
     <div class="container">
 
             <div class="row">
@@ -8,9 +10,11 @@
                     <span class="moji">カロリーグラフ</span>
                 </div>   
             </div>
-    
+            <div class="calories-burned">
+                <h2 class="graphsum"><%= current_user.nickname%>さんの今月の合計消費カロリーは<%= @results.inject(0) { |sum, num| sum + num } %>(kcal)です。</h2>
+            </div>
             <canvas id="myChart"></canvas>
-
+            
             <script>
                 //maxの数字を上限値にランダムな数字を生成する関数
                 function getRandomInt(max){
@@ -46,11 +50,49 @@
                         }]
                     },
 
-                    // Configuration options go here
+               
                     options: {}
                 });
+
+                Chart.plugins.register({
+                    afterDatasetsDraw: function (chart, easing) {
+
+                        var ctx = chart.ctx;
+
+                        chart.data.datasets.forEach(function (dataset, i) {
+                            var meta = chart.getDatasetMeta(i);
+                            if (!meta.hidden) {
+                                meta.data.forEach(function (element, index) {
+
+                                    ctx.fillStyle = 'rgb(0, 0, 0)';
+
+                                    var fontSize = 16;
+                                    var fontStyle = 'normal';
+                                    var fontFamily = 'Helvetica Neue';
+                                    ctx.font = Chart.helpers.fontString(fontSize, fontStyle, fontFamily);
+
+                                    var dataString = dataset.data[index].toString();
+
+                                    ctx.textAlign = 'center';
+                                    ctx.textBaseline = 'middle';
+
+                                    var padding = 5;
+                                    var position = element.tooltipPosition();
+                                    ctx.fillText(dataString, position.x, position.y - (fontSize / 2) - padding);
+                                });
+                            }
+                        });
+                    }
+                });
+
+
+
+
+
+
             </script>
 
              <%= link_to '戻る', user_path(current_user) , class: "btn btn-default btn-lg graphback" %>
+
 
     </div>

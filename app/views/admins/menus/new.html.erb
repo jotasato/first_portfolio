@@ -1,36 +1,64 @@
 
-  <%= render 'layouts/admins_header'%>
+<%= render 'layouts/admins_header'%>
 
+<div class="container">
 
-<%= form_for @menu, url: admins_menus_path, method: :post do |f| %>　　
-   
-
-   <%= f.label :メニュー名 %>
-   <%= f.text_field :menu_name %>
-
+    <%= form_for @menu, url: admins_menus_path, method: :post do |f| %>　　
+      
+    <div class="row">
     
-     <%= f.label :カロリー %>
-     <%= f.text_field :calorie%>(kcal)
+      <div class="col-md-4">
+          <%= f.label :メニュー名 %>
+          <%= f.text_field :menu_name %>
+      </div>
 
-     <%= f.label :たんぱく質 %>
-     <%= f.text_field :protein %>(g)
+      <div class="col-md-4">
+            <%= f.label :カロリー %>
+            <%= f.text_field :calorie%>(kcal)
+      </div>
 
-     <%= f.label :脂質 %>
-     <%= f.text_field :fat %>(g)
-
-     <%= f.label :炭水化物 %>
-     <%= f.text_field :carbo %>(g)
-
-
+      <div class="col-md-4">
+            <%= f.label :たんぱく質 %>
+            <%= f.text_field :protein %>(g)
+      </div>
    
-
-   <%= f.label :メニュー画像 %>
-   <%= f.file_field :menu_image_id %>
-
-   <%= link_to '戻る', admins_admin_path(current_admin), class: "btn btn-default btn-lg objective-back" %>
-                    
-   <%= f.submit '更新', class: "btn btn-default btn-lg objective-update" %>
+    </div>
 
 
+    <div class="row">
+    
+      <div class="col-md-4">
+        　　　<%= f.label :脂質 %>
+          <%= f.text_field :fat %>(g)
+      </div>
 
-<% end %>
+       <div class="col-md-4">
+          <%= f.label :炭水化物 %>
+          <%= f.text_field :carbo %>(g)
+       </div>
+
+       <div class="col-md-4">
+          <%= f.label :メニュー画像 %>
+          <%= f.file_field :menu_image_id %>
+       </div>
+
+     </div>
+
+
+      <div class="row">
+       
+       <div class="col-md-6">
+        <%= link_to '戻る', admins_admin_path(current_admin), class: "btn btn-default btn-lg newmenu-back" %>
+       </div>
+
+       <div class="col-md-6">             
+        <%= f.submit '新規作成', class: "btn btn-default btn-lg newmenu-update" %>
+       </div>
+      
+      </div>
+
+
+
+    <% end %>
+
+</div>

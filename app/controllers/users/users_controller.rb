@@ -1,6 +1,6 @@
 class Users::UsersController < ApplicationController
       
-      before_action :authenticate_user!, only: :show
+      before_action :authenticate_user!, only: :measurement
       
       
       
@@ -28,7 +28,7 @@ class Users::UsersController < ApplicationController
             redirect_to user_path(current_user) #redirectの場合はnotice
         else
             flash[:alert] ="更新失敗しました" #　renderの場合はalert
-            render :edit  #editアクションを再度呼び出す
+            render action: :edit  #editアクションを再度呼び出す
         end
       end
 
@@ -61,14 +61,19 @@ class Users::UsersController < ApplicationController
 
       def measurement #測定ページを表示する
         @user = current_user
-      end    
+      end  
 
       def record #測定結果保存
         @user = current_user
         @user.maintain_calories(user_params, params[:momentum])
         @user.assign_attributes(user_params) #指定モデルの各カラムに値を入れる。ただし保存はまだしない。
-        @user.save
+        if  @user.save
         redirect_to result_path
+        else
+        flash[:alert] ="更新失敗しました" #　renderの場合はalert
+        render action: :measurement  #editアクションを再度呼び出す
+        end
+
       end
 
       #測定結果表示
@@ -89,15 +94,15 @@ class Users::UsersController < ApplicationController
             @graph_days =  @graphs.map{ |graph| graph.created_at.strftime("%d").to_i } #ユーザーが測定した日付一覧。
             @results =  [*1..31] #1~31の配列を作る
             @results.each do |day|
-              if @graph_days.include?(day) #配列1~31(day)が測定した日付のユーザーに含まれているかいないかの判定
-                year =  Time.now.strftime("%y").to_i
-                month =  Time.now.strftime("%m").to_i
-                final = DateTime.parse("20#{year}-#{month}-#{day}")
-                @results[day - 1] = @graphs.find_by(created_at: final.in_time_zone.all_day).remaining_calorie #日付をもとに1つのレコードを取得。そのレコードの中のremaining_calorieカラムを取得
-              else 
-                @results[day - 1] = 0 
-              end
-              end
+                if @graph_days.include?(day) #配列1~31(day)が測定した日付のユーザーに含まれているかいないかの判定
+                  year =  Time.now.strftime("%y").to_i
+                  month =  Time.now.strftime("%m").to_i
+                  final = DateTime.parse("20#{year}-#{month}-#{day}")
+                  @results[day - 1] = @graphs.find_by(created_at: final.in_time_zone.all_day).remaining_calorie #日付をもとに1つのレコードを取得。そのレコードの中のremaining_calorieカラムを取得
+                else 
+                  @results[day - 1] = 0 
+                end
+             end
             @results.unshift(0) #配列の最初に0を入れないとnilになってエラーが出るので0を代入
         
       end
@@ -107,4 +112,4 @@ class Users::UsersController < ApplicationController
         params.require(:user).permit(:nickname, :postal_code, :address, :tel, :email, :objective, :height, :age, :weight, :gender, :result)
     end
   
-end
+  end

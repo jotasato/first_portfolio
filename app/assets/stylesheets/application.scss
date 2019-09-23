@@ -140,7 +140,7 @@ a
 .row.sign_up_box //サインアップ画面
 {
   text-align: center;
-  height: 622px;
+  height: 1000px;
   background-color: #fcfbf8;
 }
   
@@ -193,6 +193,17 @@ a
   border-radius: 5px;
 }
 
+.must //必須ボタン
+{
+  background-color: #FF1A00;
+  color: #FFF;
+	border-radius: 3px;
+	font-size: 12px;
+	margin-right: 10px;
+	padding: 5px 10px;
+	letter-spacing: 0.2em;
+}
+
 .sign_up_btn //会員登録ボタン
 {
     margin-top: 50px;
@@ -238,7 +249,7 @@ footer p //フッター文字
 
 .kara_box //footer最下部に固定するための記述
 {
-  height: 500px;
+  height: 750px;
 }
 
 
@@ -359,6 +370,16 @@ width: 350px;
  padding-top: 50px;
 }
 
+.eat  //食べるボタン
+{
+  margin-left: 87px;
+  width: 150px;
+}
+
+.noeat  //戻るボタン
+{
+  width: 142px;
+}
 
 
 //ユーザー情報編集ページ
@@ -624,4 +645,127 @@ td
 {
  margin-top: 50px;
  width: 150px;
+}
+
+.graphsum //グラフ合計値
+{
+  margin-left: 190px;
+  font-family: -webkit-pictograph;
+}
+
+.calories-burned //消費カロリーの合計値
+{
+  background-color: #333333;
+  color: #fcfbf8;
+  display: inline-block;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  font-size: 45px;
+  text-align: start;
+  margin-top: 30px;
+  width: 1100px;
+}
+
+//ページネーション 機能部分
+
+.pagination>.active>a {     
+  background: #69a538;     /*背景の色を変える*/
+  border-radius: 15px;     /*角を丸くする*/
+}
+
+/*ページネーション自体のデザイン*/
+.pagination>li>a {          
+  border: none;     /*枠線をなくす*/
+  color: #69a538;   /*文字の色を変える*/
+}
+
+
+//メニューー新規登録画面(管理者側)
+
+.newmenu-back //戻るボタン
+{
+ width: 150px;
+ margin-top: 100px;
+}
+
+
+.newmenu-update  //作成ボタン
+{
+ width: 150px;
+ margin: 100px 0px 0px 300px;
+}
+
+
+//食事記録画面
+
+.mealrecord-back //戻るボタン
+{
+ width: 200px;
+ margin-top: 100px;
+}
+
+.mealfinish //食事を終了するボタン
+{
+  width: 250px;
+  margin-left: 300px;
+  margin-top: 100px;
+  
+}
+
+.mealrecord-text
+{
+ text-align: center;
+ margin-top: 10px;
+}
+
+.mealrecord-btn-box
+{
+  text-align: center;
+}
+
+.nutrient-box1
+{
+  background-color: #333333;
+  color: #fcfbf8;
+  display: inline-block;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  font-size: 45px;
+  width: 555px;
+  text-align: start;
+  margin-top: 30px;
+}
+
+.nutrient-box2
+{
+  background-color: #333333;
+  color: #fcfbf8;
+  display: inline-block;
+  padding: 10px 10px;
+  width: 550px;
+  text-align: start;
+  margin-top: 30px;
+}
+
+.nutrient-box3
+{
+  background-color: #333333;
+  color: #fcfbf8;
+  display: inline-block;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  font-size: 45px;
+  width: 524px;
+  text-align: start;
+  margin-top: 30px;
+}
+
+.menurecord-delete
+{
+  background-color: #FF1A00;
+  color: #FFF;
+	border-radius: 3px;
+	font-size: 12px;
+	margin-right: 10px;
+	padding: 5px 10px;
 }

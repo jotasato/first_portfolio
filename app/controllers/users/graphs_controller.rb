@@ -3,7 +3,6 @@ class Users::GraphsController < ApplicationController
 
     def create
         @graph = Graph.new(graph_params)
-        binding.pry
         @graph.user_id = current_user.id
         @graph.save
         redirect_to graph_path(current_user)

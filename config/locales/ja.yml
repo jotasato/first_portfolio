@@ -4,4 +4,25 @@ ja:
       gender:
         male: 男性
         female: 女性
+
+
+  activerecord:
+    models:
+      user: "ユーザー"
+    attributes:
+      user:
+        age: 年齢
+        height: 身長
+        weight: 体重
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード確認
+        postal_code: 郵便番号
+        address: 住所
+        tel: 電話番号
         
+
+
+views:
+    pagination:
+      truncate: "..."

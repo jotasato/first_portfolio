@@ -1,4 +1,37 @@
-<h1>メニュー詳細</h1>
-<%= @menu.menu_name %>
-　<%= image_tag @menu.menu_image_id.url, size: "150x150" if @menu.menu_image_id? %>
- <%=link_to 'メニューを削除', admins_menu_path(@menu.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<%= render 'layouts/admins_header'%>
+
+     <div class="row">
+
+        <div class="col-md-4 col-md-offset-4 mypage-logo">
+            <h1>MENU DETAILS</h1>
+              <span class="moji">メニュー詳細</span>
+
+              <br>
+              <br>
+              <br>          
+        </div>      
+
+     </div>
+
+	<div class="container">
+		<div class="row menu_show">
+			<div class="col-md-6">
+			   <%= image_tag @menu.menu_image_id.url, size: "250x250" if @menu.menu_image_id? %>
+			</div>	
+			
+		    <div class="col-md-6 ">
+                <div id="nutrition">
+                    <div class="menu_name">メニュー名　　<%= @menu.menu_name %></div>　<br>
+                    カロリー　　　<%= @menu.calorie %> (kcal)　<br>
+                    たんぱく質　　<%= @menu.protein %> <span class="g">(g)</span>　<br>
+                    脂質　　　　　<%= @menu.fat %> <span class="g">(g)</span>　<br>
+                    炭水化物　　　<%= @menu.carbo %> <span class="g">(g)</span>　<br>
+                    </div>
+                </div>
+            </div>
+
+            <%=link_to 'メニューを削除', admins_menu_path(@menu.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+        </div>
+    </div>
+
+            <%= link_to '戻る', admins_admin_path(current_admin), class: "btn btn-default btn-lg" %>

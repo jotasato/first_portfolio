@@ -11,8 +11,22 @@ class User < ApplicationRecord
   has_many :mealrecords 
   has_many :menus, dependent: :destroy, through: :mealrecords
 
+  validates :height, :presence => true, :on => :update
+  validates :weight, :presence => true, :on => :update
+  validates :age, :presence => true, :on => :update
 
-  def maintain_calories(params, momentum)
+  validates :password, presence: true, length: { minimum: 6 }, if: :password_required?
+  validates :password_confirmation, presence: true, length: { minimum: 6 }, :on => :create ,if: :password_required?
+
+
+
+
+
+  
+  
+
+        #維持カロリーの計算記述
+  def maintain_calories(params, momentum) 
         #送られてきた値が男の子だったらこちらで計算
     if params[:gender] == "male" 
         self.result = 66 + (13.7 * params[:weight].to_i) + (5.0 * params[:height].to_i) - (6.8 *params[:age].to_i) * momentum.to_f

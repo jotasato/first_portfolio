@@ -1,5 +1,9 @@
 class Admins::MenusController < ApplicationController
+
+  before_action :authenticate_admin!
+
     def index
+      @menus = Menu.all
     end
 
     def show
@@ -13,7 +17,7 @@ class Admins::MenusController < ApplicationController
     def create
       @menu = Menu.new(menu_params)  
       @menu.save
-      redirect_to admins_menu_path(current_admin)
+      redirect_to admins_menu_path(@menu)
     end
 
     def update

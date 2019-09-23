@@ -9,45 +9,84 @@
 
               <br>
               <br>
-              <br>          
+              <br>       
         </div>      
 
       </div>
 
 
+	<% if user_signed_in? %>
 
 
-	<div class="container">
-		<div class="row menu_show">
-			<div class="col-md-6">
-			   <%= image_tag @menu.menu_image_id.url, size: "250x250" if @menu.menu_image_id? %>
-			</div>	
-			
-		    <div class="col-md-6 ">
-			 <div id="nutrition">
-				<div class="menu_name">メニュー名　　<%= @menu.menu_name %></div>　<br>
-				カロリー　　　<%= @menu.calorie %> (kcal)　<br>
-				たんぱく質　　<%= @menu.protein %> (g)　<br>
-				脂質　　　　　<%= @menu.fat %> (g)　<br>
-				炭水化物　　　<%= @menu.carbo %> (g)　<br>
-
+		<div class="container">
+			<div class="row menu_show">
+				<div class="col-md-6">
+				<%= image_tag @menu.menu_image_id.url, size: "320x320" if @menu.menu_image_id? %>
+				</div>	
 				
-			 
-				<!-- ここで、中間テーブルを扱うコントローラ、mealrecords#createに、@menuのidを保持したまま送る。 -->
-				<%= form_for(@mealrecord, path: mealrecords_path) do |f| %>
-					<%#= f.hidden_field :user_id, current_user.id %>
-					<%= f.hidden_field :menu_id, value: @menu.id %>
-				</div>
-					<br>
-					<br>
-					<br>
-					<%= link_to '戻る', menus_path, class: "btn btn-default btn-lg" %>
-					<%= f.submit '食べる', class: "btn btn-default btn-lg " %>		
+				<div class="col-md-6 ">
+				<div id="nutrition">
+					<div class="menu_name">メニュー名　　<%= @menu.menu_name %></div>　<br>
+					カロリー　　　<%= @menu.calorie %> (kcal)　<br>
+					たんぱく質　　<%= @menu.protein %><span class="gram">(g)</span><br>
+					脂質　　　　　<%= @menu.fat %><span class="gram">(g)</span><br>
+					炭水化物　　　<%= @menu.carbo %><span class="gram">(g)</span><br>
+
 					
-				<% end %>
+				
+					<!-- ここで、中間テーブルを扱うコントローラ、mealrecords#createに、@menuのidを保持したまま送る。 -->
+					<%= form_for(@mealrecord, path: mealrecords_path) do |f| %>
+						<%#= f.hidden_field :user_id, current_user.id %>
+						<%= f.hidden_field :menu_id, value: @menu.id %>
+				</div>
+						<br>
+						<br>
+						<br>
+						<%= link_to '戻る', menus_path, class: "btn btn-default btn-lg noeat" %>
+						<%= f.submit '食べる', class: "btn btn-default btn-lg eat" %>		
+						
+					<% end %>
 			</div>
 
-	    </div>
+		</div>
+
+	<% else %>
+
+
+		<div class="container">
+			<div class="row menu_show">
+				<div class="col-md-6">
+				<%= image_tag @menu.menu_image_id.url, size: "320x320" if @menu.menu_image_id? %>
+				</div>	
+				
+				<div class="col-md-6 ">
+				<div id="nutrition">
+					<div class="menu_name">メニュー名　　<%= @menu.menu_name %></div>　<br>
+					カロリー　　　<%= @menu.calorie %> (kcal)　<br>
+					たんぱく質　　<%= @menu.protein %><span class="gram">(g)</span><br>
+					脂質　　　　　<%= @menu.fat %><span class="gram">(g)</span><br>
+					炭水化物　　　<%= @menu.carbo %><span class="gram">(g)</span><br>
+
+					
+				
+					<!-- ここで、中間テーブルを扱うコントローラ、mealrecords#createに、@menuのidを保持したまま送る。 -->
+					<%= form_for(@mealrecord, path: mealrecords_path) do |f| %>
+						<%#= f.hidden_field :user_id, current_user.id %>
+						<%= f.hidden_field :menu_id, value: @menu.id %>
+				</div>
+						<br>
+						<br>
+						<br>
+						<%= link_to '戻る', menus_path, class: "btn btn-default btn-lg noeat" %>	
+						
+					<% end %>
+			</div>
+
+		</div>
+	
+	<% end %>
+
+	
         
 								
 					

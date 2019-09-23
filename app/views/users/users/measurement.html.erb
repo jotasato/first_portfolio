@@ -20,7 +20,9 @@
 
 
      <%= form_for @user, url: record_path(current_user), method: :patch do |f| %>
-            
+
+     　　　　<%= render 'layouts/error_messages', model: f.object %>
+                        
             <table id="table_maintenance">
                 <tbody>
                     <tr>
@@ -84,7 +86,7 @@
     <% end %>
 
 <% else %>
- <%= link_to new_user_session_path  "ログインしてください", "" %>
+ <%= link_to "ログインしてください", new_user_session_path %>
 <% end %>
 
 

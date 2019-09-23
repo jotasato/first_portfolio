@@ -1,49 +1,47 @@
 <header>
       
-<div class="fixed_nav z-index">
+    <div class="fixed_nav z-index">
 
-    <div class="container header_box">
-        <div class="row header_content">
-                            <div class="col-lg-4">
-                                    <%= link_to root_path do %>
-                                        <%= image_tag "melhealhabit.jpg",class: "logo-btn" %>
-                                    <% end %>
-                            </div>
+        <div class="container header_box">
+            <div class="row header_content">
+                                <div class="col-lg-4">
+                                        <%= link_to root_path do %>
+                                            <%= image_tag "melhealhabit.jpg",class: "logo-btn" %>
+                                        <% end %>
+                                </div>
 
-                         <% if admin_signed_in? %>
-                            <div class="col-lg-2 user_menu">
-                                <li class="">
-                                    <%= link_to "メニュー一覧", admins_menus_path %>
-                                </li>
-                            </div>
-                            <div class="col-lg-2 user_menu">
-                  
-                            </div>
-                            <div class="col-lg-2 user_menu">
-                                <li class="">
-                                    <%= link_to "マイページ", admins_admin_path(current_admin) %>
-                                </li>
-                            </div>
-                            <div class="col-lg-2 user_menu">
-                                <li class="">
-                                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
-                                </li>
-        </div>              </div>
-    </div>
-
-                        <% else %>
-                            <div class="registration_box">
-                               
-                                <div class="sign_in">
+                            <% if admin_signed_in? %>
+                                <div class="col-lg-2 user_menu">
                                     <li class="">
+                                        <%= link_to "メニュー一覧", admins_menus_path %>
                                     </li>
                                 </div>
-                             </div>
-                        <% end %>
-</div>
-
-                <div class="notice">
-                 <%= flash[:notice] %>
-                </div>
+                                <div class="col-lg-2 user_menu">
+                                    <li class="">
+                                        <%= link_to "メニュー登録", new_admins_menu_path %>
+                                    </li>
+                                </div>
+                                <div class="col-lg-2 user_menu">
+                                    <li class="">
+                                        <%= link_to "マイページ", admins_admin_path(current_admin) %>
+                                    </li>
+                                </div>
+                                <div class="col-lg-2 user_menu">
+                                    <li class="">
+                                        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+                                    </li>
+                                </div>
+            </div>             
+        </div>
+                            <% else %>
+                                <div class="registration_box">
+                                
+                                    <div class="sign_in">
+                                        <li class="">
+                                        </li>
+                                    </div>
+                                </div>
+                            <% end %>
+    </div>
                 
 </header>
