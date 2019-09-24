@@ -1,169 +1,167 @@
-<% if @graphresult.nil %>
+<% unless @graphresult.nil? %>
 
 
-<%= render 'layouts/users_header'%>
+    <%= render 'layouts/users_header'%>
 
-    <div class="container">
+        <div class="container">
 
-      <div class="row">
+          <div class="row">
 
-        <div class="col-md-4 col-md-offset-4 menu-logo">
-          <h1>MEAL RECORD</h1>
-          <span class="moji">食事記録</span>
-        </div>      
+            <div class="col-md-4 col-md-offset-4 menu-logo">
+              <h1>MEAL RECORD</h1>
+              <span class="moji">食事記録</span>
+            </div>      
 
-      </div>
+          </div>
 
-        <div class="row">
-            <div class="col-md-12 mealrecord-text">
-                <h2><%= @user.nickname %>さんの食事記録</h2>
-                <div class="nutrient-box1">
-      
-                  <h2><%= @user.nickname %>さんの維持カロリーは<%= @user.result.round(0) %>(kcal)です</h2>
+            <div class="row">
+                <div class="col-md-12 mealrecord-text">
+                    <h2><%= @user.nickname %>さんの食事記録</h2>
+                    <div class="nutrient-box1">
+          
+                      <h2><%= @user.nickname %>さんの維持カロリーは<%= @user.result.round(0) %>(kcal)です</h2>
+                    </div>
+
+                    <% sum = 0 %> 
+                    <% fat = 0 %>
+                    <% protein = 0 %>
+                    <% carbo = 0 %>
+
+            
+                    <h2>本日は
+                        <% @mealrecords.each do |mealrecord| %> 
+                            <% fat += mealrecord.menu.fat %> <%# 現在食事記録で持っている脂質＋新しく追加された脂質 %>
+                            <% carbo += mealrecord.menu.carbo %> <%# 現在食事記録で持っている,炭水化物＋新しく追加された炭水化物 %>
+                            <% protein += mealrecord.menu.protein %> <%# 現在食事記録で持っているたんぱく質＋新しく追加されたたんぱく質 %>
+                            <% sum += mealrecord.menu.calorie %> <%# 現在食事記録で持っているカロリー＋新しく追加されたカロリー %>
+                      
+                            <%= mealrecord.menu.menu_name %> 
+                            <span class="menurecord-delete"><%= link_to 'メニュー削除', mealrecord_path(mealrecord.id), method: :delete %></span>
+                            <br>
+                        <% end %>
+                        を食べました。<br>
+                    </h2>
+                    <div class="nutrient-box2">
+                　    <h2>現在の摂取合計値は<%= sum %>(kcal)です。</h2>
+                    </div>
                 </div>
-
-                <% sum = 0 %> 
-                <% fat = 0 %>
-                <% protein = 0 %>
-                <% carbo = 0 %>
-
-        
-                <h2>本日は
-                    <% @mealrecords.each do |mealrecord| %> 
-                        <% fat += mealrecord.menu.fat %> <%# 現在食事記録で持っている脂質＋新しく追加された脂質 %>
-                        <% carbo += mealrecord.menu.carbo %> <%# 現在食事記録で持っている,炭水化物＋新しく追加された炭水化物 %>
-                        <% protein += mealrecord.menu.protein %> <%# 現在食事記録で持っているたんぱく質＋新しく追加されたたんぱく質 %>
-                        <% sum += mealrecord.menu.calorie %> <%# 現在食事記録で持っているカロリー＋新しく追加されたカロリー %>
-                  
-                        <%= mealrecord.menu.menu_name %> 
-                        <span class="menurecord-delete"><%= link_to 'メニュー削除', mealrecord_path(mealrecord.id), method: :delete %></span>
-                        <br>
-                    <% end %>
-                    を食べました。<br>
-                </h2>
-                <div class="nutrient-box2">
-            　    <h2>現在の摂取合計値は<%= sum %>(kcal)です。</h2>
+                <div class="col-md-12 mealrecord-text">
+                  <div class="nutrient-box1">
+                    <h2>残りカロリーは、<%= (current_user.result - sum).round(0) %>(kcal)です。</h2>
+                  </div>
+                    <h2>本日の摂取栄養素の内訳は、</h2>
+                    <div class="nutrient-box3">
+                      <h2>たんぱく質<%= protein %>(g)</h2>
+                      <h2>脂質<%= fat %>(g)</h2>
+                      <h2>炭水化物<%= carbo %>(g)です。</h2>
+                    </div> 
                 </div>
             </div>
-            <div class="col-md-12 mealrecord-text">
-              <div class="nutrient-box1">
-                <h2>残りカロリーは、<%= (current_user.result - sum).round(0) %>(kcal)です。</h2>
-              </div>
-                <h2>本日の摂取栄養素の内訳は、</h2>
-                <div class="nutrient-box3">
-                  <h2>たんぱく質<%= protein %>(g)</h2>
-                  <h2>脂質<%= fat %>(g)</h2>
-                  <h2>炭水化物<%= carbo %>(g)です。</h2>
-                </div> 
+              
+            <div class="mealrecord-btn-box">
+              <%= form_for @graph, url: graphs_path, method: :post do |f| %>
+
+                  <%= f.hidden_field :remaining_calorie, value: current_user.result - sum %>
+
+                  <%= link_to '戻る', user_path(current_user), class: "btn btn-success btn-lg mealrecord-back" %>
+
+                  <%= f.submit "今日の食事を終了する", class: "btn btn-success btn-lg mealfinish", "data-confirm" => "食事終了は一日一回までです。本当に終了しますか？" %>
+              
+
+              <% end %>
             </div>
+
         </div>
           
-        <div class="mealrecord-btn-box">
-          <%= form_for @graph, url: graphs_path, method: :post do |f| %>
 
-              <%= f.hidden_field :remaining_calorie, value: current_user.result - sum %>
+    　　<%#= link_to '戻る', user_path(current_user), class: "btn btn-default modoru" %>
 
-              <%= link_to '戻る', user_path(current_user), class: "btn btn-success btn-lg mealrecord-back" %>
-
-              <%= f.submit "今日の食事を終了する", class: "btn btn-success btn-lg mealfinish"%>
-          
-
-          <% end %>
-        </div>
 
     </div>
-      
 
-　　<%#= link_to '戻る', user_path(current_user), class: "btn btn-default modoru" %>
-
-
-</div>
-
-  <div class="kara_box2"></div>
+      <div class="kara_box2"></div>
 
 
 <% else %>
 
 
-<%= render 'layouts/users_header'%>
+    <%= render 'layouts/users_header'%>
 
-    <div class="container">
+        <div class="container">
 
-      <div class="row">
+          <div class="row">
 
-        <div class="col-md-4 col-md-offset-4 menu-logo">
-          <h1>MEAL RECORD</h1>
-          <span class="moji">食事記録</span>
-        </div>      
+            <div class="col-md-4 col-md-offset-4 menu-logo">
+              <h1>MEAL RECORD</h1>
+              <span class="moji">食事記録</span>
+            </div>      
 
-      </div>
+          </div>
 
-        <div class="row">
-            <div class="col-md-12 mealrecord-text">
-                <h2><%= @user.nickname %>さんの食事記録</h2>
-                <div class="nutrient-box1">
-      
-                  <h2><%= @user.nickname %>さんの維持カロリーは<%= @user.result.round(0) %>(kcal)です</h2>
+            <div class="row">
+                <div class="col-md-12 mealrecord-text">
+                    <h2><%= @user.nickname %>さんの食事記録</h2>
+                    <div class="nutrient-box1">
+          
+                      <h2><%= @user.nickname %>さんの維持カロリーは<%= @user.result.round(0) %>(kcal)です</h2>
+                    </div>
+
+                    <% sum = 0 %> 
+                    <% fat = 0 %>
+                    <% protein = 0 %>
+                    <% carbo = 0 %>
+
+            
+                    <h2>本日は
+                        <% @mealrecords.each do |mealrecord| %> 
+                            <% fat += mealrecord.menu.fat %> <%# 現在食事記録で持っている脂質＋新しく追加された脂質 %>
+                            <% carbo += mealrecord.menu.carbo %> <%# 現在食事記録で持っている,炭水化物＋新しく追加された炭水化物 %>
+                            <% protein += mealrecord.menu.protein %> <%# 現在食事記録で持っているたんぱく質＋新しく追加されたたんぱく質 %>
+                            <% sum += mealrecord.menu.calorie %> <%# 現在食事記録で持っているカロリー＋新しく追加されたカロリー %>
+                      
+                            <%= mealrecord.menu.menu_name %> 
+                            <span class="menurecord-delete"><%= link_to 'メニュー削除', mealrecord_path(mealrecord.id), method: :delete %></span>
+                            <br>
+                        <% end %>
+                        を食べました。<br>
+                    </h2>
+                    <div class="nutrient-box2">
+                　    <h2>現在の摂取合計値は<%= sum %>(kcal)です。</h2>
+                    </div>
                 </div>
-
-                <% sum = 0 %> 
-                <% fat = 0 %>
-                <% protein = 0 %>
-                <% carbo = 0 %>
-
-        
-                <h2>本日は
-                    <% @mealrecords.each do |mealrecord| %> 
-                        <% fat += mealrecord.menu.fat %> <%# 現在食事記録で持っている脂質＋新しく追加された脂質 %>
-                        <% carbo += mealrecord.menu.carbo %> <%# 現在食事記録で持っている,炭水化物＋新しく追加された炭水化物 %>
-                        <% protein += mealrecord.menu.protein %> <%# 現在食事記録で持っているたんぱく質＋新しく追加されたたんぱく質 %>
-                        <% sum += mealrecord.menu.calorie %> <%# 現在食事記録で持っているカロリー＋新しく追加されたカロリー %>
-                  
-                        <%= mealrecord.menu.menu_name %> 
-                        <span class="menurecord-delete"><%= link_to 'メニュー削除', mealrecord_path(mealrecord.id), method: :delete %></span>
-                        <br>
-                    <% end %>
-                    を食べました。<br>
-                </h2>
-                <div class="nutrient-box2">
-            　    <h2>現在の摂取合計値は<%= sum %>(kcal)です。</h2>
+                <div class="col-md-12 mealrecord-text">
+                  <div class="nutrient-box1">
+                    <h2>残りカロリーは、<%= (current_user.result - sum).round(0) %>(kcal)です。</h2>
+                  </div>
+                    <h2>本日の摂取栄養素の内訳は、</h2>
+                    <div class="nutrient-box3">
+                      <h2>たんぱく質<%= protein %>(g)</h2>
+                      <h2>脂質<%= fat %>(g)</h2>
+                      <h2>炭水化物<%= carbo %>(g)です。</h2>
+                    </div> 
                 </div>
             </div>
-            <div class="col-md-12 mealrecord-text">
-              <div class="nutrient-box1">
-                <h2>残りカロリーは、<%= (current_user.result - sum).round(0) %>(kcal)です。</h2>
-              </div>
-                <h2>本日の摂取栄養素の内訳は、</h2>
-                <div class="nutrient-box3">
-                  <h2>たんぱく質<%= protein %>(g)</h2>
-                  <h2>脂質<%= fat %>(g)</h2>
-                  <h2>炭水化物<%= carbo %>(g)です。</h2>
-                </div> 
+              
+            <div class="mealrecord-btn-box">
+              <%= form_for @graph, url: graphs_path, method: :post do |f| %>
+
+                  <%= f.hidden_field :remaining_calorie, value: current_user.result - sum %>
+
+                  <%= link_to '戻る', user_path(current_user), class: "btn btn-success btn-lg mealrecord-back" %>
+              
+
+              <% end %>
             </div>
+
         </div>
           
-        <div class="mealrecord-btn-box">
-          <%= form_for @graph, url: graphs_path, method: :post do |f| %>
 
-              <%= f.hidden_field :remaining_calorie, value: current_user.result - sum %>
+    　　<%#= link_to '戻る', user_path(current_user), class: "btn btn-default modoru" %>
 
-              <%= link_to '戻る', user_path(current_user), class: "btn btn-success btn-lg mealrecord-back" %>
-
-              <%= f.submit "今日の食事を終了する", class: "btn btn-success btn-lg mealfinish"%>
-          
-
-          <% end %>
-        </div>
 
     </div>
-      
 
-　　<%#= link_to '戻る', user_path(current_user), class: "btn btn-default modoru" %>
-
-
-</div>
-
-  <div class="kara_box2"></div>
+      <div class="kara_box2"></div>
 
 
 <% end %>

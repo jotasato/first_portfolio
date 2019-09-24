@@ -528,7 +528,17 @@ width: 350px;
   position: relative;
   right: 290px;
   width: 150px;
+}
 
+.measurment-result
+{
+  background-color: #333333;
+  color: #fcfbf8;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  font-size: 28px;
+  margin-top: 30px;
+  width: 380px;
 }
 
 .kara_box3
@@ -780,24 +790,23 @@ td
 
 .mealfinish //食事を終了するボタン
 {
-  width: 250px;
-  margin-left: 300px;
+  width: 238px;
+  margin-left: 90px;
   margin-top: 100px;
-  
 }
 
-.mealrecord-text
+.mealrecord-text //食事記録テキスト部分
 {
  text-align: center;
  margin-top: 10px;
 }
 
-.mealrecord-btn-box
+.mealrecord-btn-box //食事記録ボタン部分
 {
   text-align: center;
 }
 
-.nutrient-box1
+.nutrient-box1 
 {
   background-color: #333333;
   color: #fcfbf8;

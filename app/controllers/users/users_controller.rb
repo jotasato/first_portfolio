@@ -82,7 +82,7 @@ class Users::UsersController < ApplicationController
           redirect_to measurement_path(@user)
         end
 
-          @graphresult = Graph.where(user_id: @user.id).created_today
+          @graphresult = Graph.where(user_id: @user.id, created_at: Time.zone.now.all_day)
 
       end
 
