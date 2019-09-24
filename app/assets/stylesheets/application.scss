@@ -85,21 +85,25 @@ a
   margin-top: 30px;
  }
 
+ .kara_box1
+ {
+  height: 300px;
+ }
+
 
 
  
  //ログイン画面
  
  
- 
- 
   
-.row.sign_in_box //ログイン画面の枠
+.sign_in_box //ログイン画面の枠
 {
   text-align: center;
   background-color: #fcfbf8;
   margin:0 -13%;
   padding: 10% 0 15% 0;
+  height: 600px;
   
 }
  
@@ -140,8 +144,10 @@ a
 .row.sign_up_box //サインアップ画面
 {
   text-align: center;
-  height: 1000px;
-  background-color: #fcfbf8;
+    height: 9px;
+    background-color: #fcfbf8;
+    padding-top: 100px;
+    height: 1000px;
 }
   
 
@@ -149,6 +155,11 @@ a
   width: 100%;
   height: 100%;
  
+}
+
+.field_with_errors
+{
+  display: inline;
 }
 
 
@@ -290,8 +301,6 @@ margin-top: 60px;
  font-size: 28px;
  list-style: none;
  border-radius: 5px;
-
-
 }
 
 
@@ -300,7 +309,7 @@ margin-top: 60px;
   padding: 20px 0;
   border-radius: 5px;
   line-height: 35px;
-  background: #fff;
+  background-color:#fcfbf8;
   border-radius: 5px;
   box-shadow: 0 2px 5px #ccc;
  
@@ -310,7 +319,11 @@ margin-top: 60px;
 {
  text-align: center;
  font-family: Impact,'Anton', sans-serif;
+}
 
+.kara_box4
+{
+  height: 700px;
 }
 
 //メニュー一覧画面
@@ -372,6 +385,11 @@ width: 350px;
  text-align: center;
 }
 
+.kara_box2
+{
+ height: 900px;
+}
+
 
 //メニュー詳細
 .menu_show
@@ -395,7 +413,7 @@ width: 350px;
 
 .infmation-box //コンテナ大枠
 {
-  background-color: #efefef;
+
   height: 850px;
 }
 
@@ -409,6 +427,8 @@ width: 350px;
 .information-content //ユーザー情報大枠
 {
   margin-top: 30px;
+  background-color: #fcfbf8;
+  height: 600px;
 }
 
 .button-box //戻る更新ボタンボックス
@@ -439,7 +459,6 @@ width: 350px;
 {
   
   text-align: center;
-  background-color: #efefef;
   height: 650px;
 
 }
@@ -451,7 +470,7 @@ width: 350px;
   margin-top: 200px;
 }
 
-.unsubscribe-logo //退会ボタン
+.unsubscribe-logo //退会ロゴ
 {
   text-align: center;
   margin-top: 50px;
@@ -460,7 +479,7 @@ width: 350px;
 
 .button-box //戻る更新ボタンボックス
 {
-  margin-top: 80px;
+  margin-top: 200px;
   display: flex; //子要素を並列にする
   justify-content: space-between; //各要素を均等に配置し、最初の要素は先頭美先頭に寄せて、最後の要素は末尾に寄せる。
 }
@@ -469,12 +488,21 @@ width: 350px;
 {
   font-size: 20px;
   width: 150px;
+  margin-right: 60px
 }
 
 .taikai  //退会ボタン
 {
   font-size: 20px;
   width: 150px;
+  margin-left: 60px
+}
+
+.background-box
+{
+  background-color: #fcfbf8;
+  height: 500px;
+  margin-top: 50px;
 }
 
 
@@ -503,6 +531,11 @@ width: 350px;
 
 }
 
+.kara_box3
+{
+  height: 500px;
+}
+
 //目標入力ページ
 
 .objective-logo
@@ -515,7 +548,6 @@ width: 350px;
 {
   
   text-align: center;
-  background-color: #efefef;
   height: 650px;
 
 }
@@ -535,7 +567,8 @@ width: 350px;
 
 .row.objective-box //ロウ大枠
 {
-  margin-top: 200px;
+  margin-top: 70px;
+  padding-top: 150px;
 }
 
 .objective-form
@@ -563,6 +596,12 @@ width: 350px;
  font-size: 20px;
  width: 150px;
  
+}
+.objective-background //目標画面背景
+{
+background-color: #fcfbf8;
+height: 530px;
+margin-top: 50px;
 }
 
 .mealrecord-logo
@@ -674,6 +713,11 @@ td
 {
   margin-left: 190px;
   font-family: -webkit-pictograph;
+}
+
+.chart-box
+{
+  height: 1100px;
 }
 
 .calories-burned //消費カロリーの合計値
@@ -799,3 +843,5 @@ td
 	margin-right: 10px;
 	padding: 5px 10px;
 }
+
+

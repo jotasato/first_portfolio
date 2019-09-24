@@ -1,6 +1,7 @@
 class Users::UsersController < ApplicationController
       
       before_action :authenticate_user!
+      before_action :set_user,except: [:show]
     
       
       
@@ -22,7 +23,6 @@ class Users::UsersController < ApplicationController
 
       #ユーザー情報更新
       def update  
-        @user = current_user
         if @user.update(user_params) 
             flash[:notice] = "更新成功しました"
             redirect_to user_path(current_user) #redirectの場合はnotice
@@ -33,38 +33,31 @@ class Users::UsersController < ApplicationController
       end
 
       def edit  
-          @user = current_user
       end
 
       def objective #目標入力編集ページを表示する
-          @user = current_user
           #この後に〜を記述
       end
 
 
       def renew #目標入力ページを更新する
-          @user = current_user
           @user.update(user_params) 
           redirect_to user_path(current_user)
       end
 
       def quit #ユーザー退会フォームの表示
-        @user = current_user
       end
 
       def clear  #ユーザー論理削除
-        @user = current_user
         @user.destroy
         sign_out(current_user)
         redirect_to root_path
       end
 
       def measurement #測定ページを表示する
-        @user = current_user
       end  
 
       def record #測定結果保存
-        @user = current_user
         @user.maintain_calories(user_params, params[:momentum])
         @user.assign_attributes(user_params) #指定モデルの各カラムに値を入れる。ただし保存はまだしない。
         if  @user.save(context: :record)
@@ -78,18 +71,19 @@ class Users::UsersController < ApplicationController
 
       #測定結果表示
       def result
-        @user = current_user
       end
 
       #ログインユーザーの食事記録を表示する
       def usermealrecord
-        @user = current_user
         if @user.result
           @mealrecords = Mealrecord.where(user_id: @user.id).created_today
           @graph = Graph.new
         else
           redirect_to measurement_path(@user)
         end
+
+          @graphresult = Graph.where(user_id: @user.id).created_today
+
       end
 
       def graph #グラフページを表示する
@@ -114,6 +108,10 @@ class Users::UsersController < ApplicationController
     private
     def user_params
         params.require(:user).permit(:nickname, :postal_code, :address, :tel, :email, :objective, :height, :age, :weight, :gender, :result)
+    end
+
+    def set_user
+      @user = current_user
     end
   
   end

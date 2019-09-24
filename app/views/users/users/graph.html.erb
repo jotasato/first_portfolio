@@ -2,7 +2,7 @@
 
 
 
-    <div class="container">
+    <div class="container chart-box">
 
             <div class="row">
                 <div class="col-md-4 col-md-offset-4 measurement-logo">
@@ -15,7 +15,13 @@
             </div>
             <canvas id="myChart"></canvas>
             
-            <script>
+
+             <%= link_to "戻る", user_path(current_user) , class:"btn btn-default btn-lg graphback" %>
+
+             
+
+    </div>
+        <script>
                 //maxの数字を上限値にランダムな数字を生成する関数
                 function getRandomInt(max){
                     return Math.floor(Math.random()* Math.floor(max));
@@ -43,7 +49,7 @@
                             label: '日別消費カロリー', //
                             backgroundColor: '#69A534',
                             borderColor: '#69A534',
-                            data: <%= @results %>,
+                            data: <%= @results %>,  //月の登録した消費カロリーをグラフ表示「
                             lineTension: 0, //ベジェ曲線の張り具合。 0（ゼロ）を指定すると直線になる。 0.1、0.2、・・・など増やしていくと曲がり具合が変わる。
                             fill: false, //線の下側の領域に色を塗るか否かの指定。 false で無色になる。
                             borderWidth: 3 //線の太さ。
@@ -84,15 +90,4 @@
                         });
                     }
                 });
-
-
-
-
-
-
-            </script>
-
-             <%= link_to '戻る', user_path(current_user) , class: "btn btn-default btn-lg graphback" %>
-
-
-    </div>
+        </script>
