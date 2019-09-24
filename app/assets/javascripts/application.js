@@ -44,7 +44,7 @@ var ScrollrevealFade = {
 
     rotate: { x: 0, y: 0, z: 0 }, //xは縦回転、yは横回転、zは傾き（風車みたいな感じ）
 
-    duration: 1000, //アニメーションの速度
+    duration: 2000, //アニメーションの速度
 
     delay :1600 //要素が表示するまでの待機時間（ディレイ）
 };

@@ -1,7 +1,7 @@
 
 
 class Users::MenusController < ApplicationController
-  PER = 6 #ページングを表示する商品の数
+  PER = 9 #ページングを表示する商品の数
 
 
   def index

@@ -1,7 +1,7 @@
 class Users::UsersController < ApplicationController
       
-      before_action :authenticate_user!, only: :measurement
-      
+      before_action :authenticate_user!
+    
       
       
       def index
@@ -67,7 +67,7 @@ class Users::UsersController < ApplicationController
         @user = current_user
         @user.maintain_calories(user_params, params[:momentum])
         @user.assign_attributes(user_params) #指定モデルの各カラムに値を入れる。ただし保存はまだしない。
-        if  @user.save
+        if  @user.save(context: :record)
         redirect_to result_path
         else
         flash[:alert] ="更新失敗しました" #　renderの場合はalert
@@ -84,8 +84,12 @@ class Users::UsersController < ApplicationController
       #ログインユーザーの食事記録を表示する
       def usermealrecord
         @user = current_user
-        @mealrecords = Mealrecord.where(user_id: @user.id).created_today
-        @graph = Graph.new
+        if @user.result
+          @mealrecords = Mealrecord.where(user_id: @user.id).created_today
+          @graph = Graph.new
+        else
+          redirect_to measurement_path(@user)
+        end
       end
 
       def graph #グラフページを表示する
@@ -113,3 +117,7 @@ class Users::UsersController < ApplicationController
     end
   
   end
+
+
+
+ 

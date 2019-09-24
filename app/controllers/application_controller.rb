@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
 
+     before_action :configure_permitted_parameters, if: :devise_controller?
      
     private
     # ログイン後のリダイレクト先
@@ -18,6 +19,12 @@ class ApplicationController < ActionController::Base
             new_admin_admin_user_session_path
         else
             new_user_session_path
+
         end
     end
+   
+    def configure_permitted_parameters
+        devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :tel, :address, :postal_code])
+    end
+    
 end

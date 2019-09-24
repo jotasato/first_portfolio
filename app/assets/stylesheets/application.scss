@@ -193,15 +193,24 @@ a
   border-radius: 5px;
 }
 
-.must //必須ボタン
+.free,.must //必須,任意ボタン
 {
-  background-color: #FF1A00;
   color: #FFF;
 	border-radius: 3px;
 	font-size: 12px;
 	margin-right: 10px;
 	padding: 5px 10px;
-	letter-spacing: 0.2em;
+  letter-spacing: 0.2em;
+}
+
+.must
+{
+  background-color: #FF1A00;
+}
+
+.free
+{
+  background-color: #999;
 }
 
 .sign_up_btn //会員登録ボタン
@@ -249,7 +258,7 @@ footer p //フッター文字
 
 .kara_box //footer最下部に固定するための記述
 {
-  height: 750px;
+  height: 900px;
 }
 
 
@@ -387,7 +396,7 @@ width: 350px;
 .infmation-box //コンテナ大枠
 {
   background-color: #efefef;
-  height: 750px;
+  height: 850px;
 }
 
 .userinformation-logo //ロゴボタン
@@ -413,14 +422,14 @@ width: 350px;
 .left{
   width: 150px;
   position: relative;
-  left: 310px;
+  right: 5px;
 }
 
 .right  //更新ボタン
 {
   width: 150px;
   position: relative;
-  right: 310px;
+  right: 5px;
 }
 
 
@@ -479,6 +488,20 @@ width: 350px;
  font-family: Impact,'Anton', sans-serif;
 }
 
+.measurement-btn-left
+{
+ position: relative;
+ left: 290px;
+ width: 150px;
+}
+
+.measurement-btn-right  //測定ボタン
+{
+  position: relative;
+  right: 290px;
+  width: 150px;
+
+}
 
 //目標入力ページ
 
@@ -505,7 +528,7 @@ width: 350px;
   padding: 10px 10px;
   margin-bottom: 10px;
   font-size: 45px;
-  width: 524px;
+  width: 560px;
   text-align: start;
   margin-top: 30px;
 }
@@ -625,7 +648,7 @@ td
 #nutrition
 {
   font-size: 25px !important; //栄養のフォントサイズ
-  font-family: serif; //栄養のフォント字体　
+  font-family: serif; //栄養のフォント字体
 } 
 
 
@@ -694,6 +717,13 @@ td
  width: 150px;
  margin: 100px 0px 0px 300px;
 }
+
+.menu-show-btn //メニュー詳細(管理者側)
+{
+ width: 150px;
+ margin-left: 150px;
+}
+
 
 
 //食事記録画面

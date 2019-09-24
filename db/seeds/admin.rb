@@ -10,3 +10,5 @@ Admin.create!(name: "管理者",
              email: "admin@example.jp",
              password:  "10101010",
              password_confirmation: "10101010")
+
+
