@@ -76,3 +76,7 @@ gem 'carrierwave' #1対1の時に簡単にファイル実装できる機能
 gem 'kaminari', '~> 0.17.0' #ページング機能
 gem 'kaminari-bootstrap', '~> 3.0.1'#ページング機能デザイン
 gem 'rails-i18n'
+
+group :production do
+ gem 'mysql2'
+end
