@@ -45,7 +45,7 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
+#  gem 'listen', '>= 3.0.5', '< 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -76,7 +76,7 @@ gem 'carrierwave' #1対1の時に簡単にファイル実装できる機能
 gem 'kaminari', '~> 0.17.0' #ページング機能
 gem 'kaminari-bootstrap', '~> 3.0.1'#ページング機能デザイン
 gem 'rails-i18n'
-
+gem 'listen', '>= 3.0.5', '< 3.2'
 group :production do
  gem 'mysql2'
 end
