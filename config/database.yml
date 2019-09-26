@@ -22,10 +22,10 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: melhealhabit
   adapter: mysql2
   encoding: utf8mb4
   collation: utf8mb4_general_ci
-  host: RDSのエンドポイント名
-  username: RDSの接続ユーザ名
-  password: RDSのパスワード
+  host: database-1.c3db6fb44hox.ap-northeast-1.rds.amazonaws.com
+  username: root
+  password: j17921792
