@@ -29,3 +29,4 @@ production:
   host: database-1.c3db6fb44hox.ap-northeast-1.rds.amazonaws.com
   username: root
   password: j17921792
+  

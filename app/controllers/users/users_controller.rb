@@ -76,8 +76,8 @@ class Users::UsersController < ApplicationController
       #ログインユーザーの食事記録を表示する
       def usermealrecord
         if @user.result
-          @mealrecords = Mealrecord.where(user_id: @user.id).created_today
-          @graph = Graph.new
+           @mealrecords = Mealrecord.where(user_id: @user.id).created_today
+           @graph = Graph.new
         else
           redirect_to measurement_path(@user)
         end
