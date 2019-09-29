@@ -17,9 +17,15 @@
 
         <div class="col-md-8 col-md-offset-2 mypage-logo">
 
-          <div class="objective-box2">
-                  <%= @user.objective %>   
-          </div>       
+          <% if @user.objective && @user.objective != "" %> <%#目標があるか空の場合はこっち%>
+
+            <div class="objective-box2">
+               目標：<%= @user.objective %>   
+            </div>     
+            
+          <% else %> <%#最初の状態で登録がない時は表示しない%>
+
+          <% end %>
 
         </div>
 

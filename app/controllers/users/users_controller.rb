@@ -1,9 +1,7 @@
 class Users::UsersController < ApplicationController
       
       before_action :authenticate_user!
-      before_action :set_user,except: [:show]
-    
-      
+      before_action :set_user,except: [:show] 
       
       def index
       end
@@ -23,41 +21,46 @@ class Users::UsersController < ApplicationController
 
       #ユーザー情報更新
       def update  
-        if @user.update(user_params) 
-            flash[:notice] = "更新成功しました"
-            redirect_to user_path(current_user) #redirectの場合はnotice
-        else
-            flash[:alert] ="更新失敗しました" #　renderの場合はalert
-            render action: :edit  #editアクションを再度呼び出す
-        end
+          if @user.update(user_params) 
+              flash[:notice] = "更新成功しました"
+              redirect_to user_path(current_user) #redirectの場合はnotice
+          else
+              flash[:alert] ="更新失敗しました" #　renderの場合はalert
+              render action: :edit  #editアクションを再度呼び出す
+          end
       end
-
+     
+      #ユーザー情報編集ページを表示する
       def edit  
       end
-
-      def objective #目標入力編集ページを表示する
-          #この後に〜を記述
+      
+      #目標入力編集ページを表示する
+      def objective 
       end
-
-
-      def renew #目標入力ページを更新する
+      
+      #目標入力ページを更新する
+      def renew 
           @user.update(user_params) 
           redirect_to user_path(current_user)
       end
 
-      def quit #ユーザー退会フォームの表示
+      #ユーザー退会フォームの表示
+      def quit 
       end
 
-      def clear  #ユーザー論理削除
+      #ユーザー論理削除
+      def clear  
         @user.destroy
         sign_out(current_user)
         redirect_to root_path
       end
 
-      def measurement #測定ページを表示する
+      #測定ページを表示する
+      def measurement 
       end  
 
-      def record #測定結果保存
+      #測定結果保存
+      def record 
         @user.maintain_calories(user_params, params[:momentum])
         @user.assign_attributes(user_params) #指定モデルの各カラムに値を入れる。ただし保存はまだしない。
         if  @user.save(context: :record)
@@ -86,8 +89,9 @@ class Users::UsersController < ApplicationController
 
       end
 
-      def graph #グラフページを表示する
-          #まずログインしているユーザーの今月の
+      #グラフページを表示する
+      def graph 
+            #まずログインしているユーザーの今月の
             @graphs = Graph.where(user_id: current_user.id, created_at: Time.now.all_month)
             @graph_days =  @graphs.map{ |graph| graph.created_at.strftime("%d").to_i } #ユーザーが測定した日付一覧。
             @results =  [*1..31] #1~31の配列を作る
@@ -110,7 +114,8 @@ class Users::UsersController < ApplicationController
         params.require(:user).permit(:nickname, :postal_code, :address, :tel, :email, :objective, :height, :age, :weight, :gender, :result)
     end
 
-    def set_user
+    #@user = current_userをコントローラー全体で使えるようにbefore actionで最初に読み込ませる。
+    def set_user 
       @user = current_user
     end
   

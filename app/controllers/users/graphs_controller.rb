@@ -2,6 +2,7 @@ class Users::GraphsController < ApplicationController
 
 
     def create
+        #グラフテーブルに残りカロリーを生成
         @graph = Graph.new(graph_params)
         @graph.user_id = current_user.id
         @graph.save

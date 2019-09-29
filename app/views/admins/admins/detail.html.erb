@@ -1,0 +1,59 @@
+<%= render 'layouts/admins_header' %>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 mypage-logo">
+            <h1>USER DETAILS</h1>
+            <span class="moji">ユーザー一詳細</span>
+              <br>
+              <br>
+              <br>   
+        </div> 
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-4 col-md-offset-4">
+
+			<div class="user_information">
+				<p>ニックネーム
+					<%= @user.nickname %>
+				</p>
+				<p>住所
+					<%= @user.postal_code %>
+				</p>
+				<p>電話番号
+					<%= @user.tel %>
+				</p>
+				<p>メールアドレス
+					<%= @user.email %>
+				</p>
+                <p>身長
+					<%= @user.height %>
+				</p>
+				<p>体重
+					<%= @user.weight %>
+				</p>
+				<p>年齢
+					<%= @user.age %>
+				</p>
+				<p> 性別
+					<%= @user.gender %>
+				</p>
+                <p>結果
+					<%= @user.result %>
+				</p>
+				<p> 目標
+					<%= @user.objective %>
+				</p>
+			</div>
+			
+				<%= link_to "戻る", admins_admins_path, class: "btn btn-success btn-lg user_detail_btn" %>
+
+		</div>
+	
+    </div>
+
+</div>

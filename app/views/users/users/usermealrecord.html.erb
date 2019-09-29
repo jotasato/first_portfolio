@@ -1,4 +1,4 @@
-<% unless @graphresult.nil? %>
+<% if @graphresult.empty? %>
 
 
     <%= render 'layouts/users_header'%>
@@ -72,10 +72,6 @@
             </div>
 
         </div>
-          
-
-    　　<%#= link_to '戻る', user_path(current_user), class: "btn btn-default modoru" %>
-
 
     </div>
 
@@ -148,16 +144,11 @@
                   <%= f.hidden_field :remaining_calorie, value: current_user.result - sum %>
 
                   <%= link_to '戻る', user_path(current_user), class: "btn btn-success btn-lg mealrecord-back" %>
-              
 
               <% end %>
             </div>
 
         </div>
-          
-
-    　　<%#= link_to '戻る', user_path(current_user), class: "btn btn-default modoru" %>
-
 
     </div>
 

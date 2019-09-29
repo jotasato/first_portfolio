@@ -859,3 +859,43 @@ td
 }
 
 
+
+//ユーザー一覧(管理者画面)
+
+.user_information_table  //ユーザー情報テーブル
+{
+  width: 600px;
+}
+
+.user_information_th //ユーザー情報テーブルタイトル部分
+{
+  display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: center;
+    background-color: #333333;
+    border: 1px solid #333333;
+    color: #FFFFFF;
+}
+
+.user_information_tr
+{
+display: table-row;
+vertical-align: inherit;
+border-color: inherit;
+font-size: 15px;
+}
+
+.list_of_users_back_btn //ユーザー一覧戻るボタン
+{
+  margin-top: 150px;
+  width: 150px;
+}
+
+//ユーザー詳細画面(管理者側)
+
+.user_detail_btn
+{
+  margin-top: 50px;
+  width: 150px;
+}

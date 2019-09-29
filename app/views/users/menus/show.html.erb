@@ -36,14 +36,13 @@
 				
 					<!-- ここで、中間テーブルを扱うコントローラ、mealrecords#createに、@menuのidを保持したまま送る。 -->
 					<%= form_for(@mealrecord, path: mealrecords_path) do |f| %>
-						<%#= f.hidden_field :user_id, current_user.id %>
 						<%= f.hidden_field :menu_id, value: @menu.id %>
 				</div>
 						<br>
 						<br>
 						<br>
-						<%= link_to '戻る', menus_path, class: "btn btn-default btn-lg noeat" %>
-						<%= f.submit '食べる', class: "btn btn-default btn-lg eat" %>		
+						<%= link_to '戻る', menus_path, class: "btn btn-success btn-lg noeat" %>
+						<%= f.submit '食べる', class: "btn btn-success btn-lg eat" %>		
 						
 					<% end %>
 			</div>
@@ -77,7 +76,7 @@
 						<br>
 						<br>
 						<br>
-						<%= link_to '戻る', menus_path, class: "btn btn-default btn-lg noeat" %>	
+						<%= link_to '戻る', menus_path, class: "btn btn-success btn-lg noeat" %>	
 						
 					<% end %>
 			</div>

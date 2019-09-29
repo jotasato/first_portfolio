@@ -1,4 +1,4 @@
 class TopsController < ApplicationController
-  def new
+  def new #トップページを表示する
   end
 end

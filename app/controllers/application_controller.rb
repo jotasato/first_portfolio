@@ -23,7 +23,10 @@ class ApplicationController < ActionController::Base
         end
     end
    
-    def configure_permitted_parameters
+
+    # deviseではサインアップ時にメールアドレスとパスワードのみを受け取るようにストロングパラメーターで設定してあるので
+    #キーを追加しても許可されません。サインアップ時に他情報も登録できるように許可する記述。
+    def configure_permitted_parameters  
         devise_parameter_sanitizer.permit(:sign_up, keys: [:nickname, :tel, :address, :postal_code])
     end
     
