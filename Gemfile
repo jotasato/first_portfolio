@@ -76,8 +76,10 @@ gem 'cocoon' #一つのフォームで親子関係のある複数モデルのレ
 gem 'carrierwave' #1対1の時に簡単にファイル実装できる機能
 gem 'kaminari', '~> 0.17.0' #ページング機能
 gem 'kaminari-bootstrap', '~> 3.0.1'#ページング機能デザイン
-gem 'rails-i18n'
+gem 'rails-i18n'#国際化
 gem 'listen', '>= 3.0.5', '< 3.2'
+gem 'squasher' #マイグレーションファイルをまとめるためのgem
 group :production do
  gem 'mysql2'
 end
+
