@@ -31,4 +31,5 @@ node_modules
 /config/master.key
 
 #database.ymlをgitで管理しないようにする記述
+Ignore uploaded files in development
 /config/database.yml
